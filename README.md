@@ -93,3 +93,6 @@ The player can use different types of vehicles to travel along the map. Also thi
 A player can zoom in/out into a certain distance with a gadget which is placed in the world.
 ## Easter eggs
 Game has hidden fun facts. If the player finds these easter eggs, it can earn different types of guns or skills. So, these eggs have trivial effects on the game process. 
+## Newly Added Features
+1- Double jump
+2- Jetpack

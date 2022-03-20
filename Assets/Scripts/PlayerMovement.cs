@@ -17,17 +17,18 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
     public Animator anim;
     public bool isAttacking = false;
-    
-   
-    
+    public Vector3 velocity;
 
-    Vector3 velocity;
+    public bool isGrounded;
+    public bool canDoubleJump = true;
 
-    bool isGrounded;
-   
+
     // Update is called once per frame
     void Update()
     {
+       
+
+
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         if(isGrounded&& velocity.y < 0)
         {
@@ -46,9 +47,24 @@ public class PlayerMovement : MonoBehaviour
         {
             // v = sqrt(h * -2 * g)
             velocity.y = Mathf.Sqrt(JumpHeight *-2f*gravity);
-            
-
         }
+
+        //double jump
+        if (Input.GetKeyDown(KeyCode.Space) && !isGrounded && canDoubleJump)
+        {
+            velocity.y = Mathf.Sqrt(JumpHeight * -2f * gravity);
+            canDoubleJump = false;
+        }
+
+
+        if (isGrounded)
+        {
+            //double jump charge
+            canDoubleJump = true;   
+        }
+
+
+
         // dashing
 
         velocity.y += gravity * Time.deltaTime;
@@ -94,9 +110,5 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log(timerRemaning);
         }
        
-
-
-    }
-
-    
+    } 
 }

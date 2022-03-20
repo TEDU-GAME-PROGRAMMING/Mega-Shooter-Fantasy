@@ -1845,6 +1845,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3212928375060144908, guid: e006c84b6c0560d47a0d7950c6449d96,
+        type: 3}
+      propertyPath: jetpackPower
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3212928375060144909, guid: e006c84b6c0560d47a0d7950c6449d96,
         type: 3}
       propertyPath: m_RootOrder
