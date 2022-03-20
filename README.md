@@ -20,79 +20,39 @@ The main player was an astronaut that was sent into an exploration mission. In h
 
 # Project Tasks
 
-## Random event system
-An event can occur with certain probability after every game tick. The events will be predefined and decided in later stages.
-## AI behavior(NPC)
-NPC that gives rational decisions such as attack, block, dodge, chase and speak. 
-NPCs are going to use A* algorithm to find path in minimap. Shortest path between the character and enemies will be calculated. This solves AI being stuck in some places. 
-## Minimap
-Player’s position is tracked with the bird's eye view and shown. Mission icons will be displayed here, too.
-## Menu layout (canvas)
-Players can adjust the volume, mouse sensitivity and graphics from the game menu.
-## Skill tree, skills
-After leveling up, players can choose the available skills from the skills tree. 
-## Inventory system and User Interface 
-Player can carry items with limited count and access those items anywhere also player can store items in chests
-## NPC voices, animations
-NPCs can interact with the player. NPCs have various types of sounds that are suitable for the current situation like attacking, hurting, dying and chatting.
-## World design
-Game world has various types of objects such as trees, stones, collectible resources and much more. Also, it has day-night routine, TBA
-## Weapons, armors: magic, physical damage and resistance
-The player can use different types of weapons to change the dealing damage type. There are 2 types of damage which are physical and magical. Armor decreases the taken physical damage and magical resistance decreases the taken magical damage.
-## Melodies
-Role playing experience increased with the different types of music.
-## Character class
-Common functionality will be gathered under this class. Damaging environment as well as specific damage criteria such as critical damage system Hero can deal 2x damage with a change
-Game has different player types which affects the gameplay of the player. There are 4 types of characters which are sorcerer, assassin, and heavy. Sorcerers deal extra magical damage; assassins have increased speed and heavy class has more health points.
-## Level up system
-After killing enemies or completing the mission, players gain experience and use those experience points to level up the controlled hero.
-## Character stats
-Players can increase the stats of the hero and make it stronger. Stats are strength, agility, intelligence, endurance and luck. Details include, stamina, health, and mana which are calculated according to the stats. These will challenge the player as choices might lead to weaker or stronger character builds. Stamina limits the movement, health limits the durability and mana is used for casting spells.
-Players can regenerate stamina, health and mana to maximum. 
-
-## Story changing actions
-Decisions that are offered from NPCs can change the future story of the game. In the game there are 2 sides: dark and light. Players must choose 1 side and battle with the other side.
-## Stealth mechanic
-If the player gets closer to the enemy without crouching, the enemy senses the movement of the player. If the player can approach the enemy without detection, a critical hit can be made. Otherwise, the enemy will see and attack the player as expected.
-## Shop, coin mechanic
-The player can buy or sell items to shopkeepers. Exchange of gold with weapons and armors are possible.
-Mine system to obtain coin, mission system
-The player can earn coins by working in a mine.  
-## Day, night system, night vision
-Enemies and the player will acquire time dependent skills. Some enemies will be stronger during the night. 
-## Craft - loot mechanic
-Collected items can be combined together to craft better items. 
-## Farming mechanic 
-The player can grow fruits or vegetables to earn coins by selling them or power up the controlled hero with the harvested orchard. 
-## Drone system (extra camera view)
-The player can explore the hidden areas with small drones.
-These drones can act as turrets which automatically shoot enemies in a certain range.
-## Map
-Players can see the full game world with birds eye.
-## Achievement system
-Specific actions will be recorded in the game. By using them, completion of predeclared missions will be checked, awards will be given to the player.
-## Projectile mechanic
-Some items will have ranged attacks. Using different kinds of items, the projectile speed can be changed.
-## Waypoint system
-The player can change its position to a predefined area. So, the player does not have to spend it’s time just running continuously on the map.
-## Backpack, weight, speed mechanics
-Items that are carried in the backpack affect the movement speed of the controlled hero.
-## Pet system
-The player can adopt a pet to gain passive skills.
-## Autopilot, auto run
-Controlled hero can go to the target position without any command from the user. In that way we are aiming for a more comfortable game for the users.
-## Random NPC stats generation & Boss fight system
-Some enemies are stronger than normal enemies, it will make the game more competitive. Also, the prize of killing the bosses is more valuable for the game. Moreover, bosses are an essential part of the game since if you want to continue the journey, you have to kill the bosses. 
-## Check point, save system
-The player can save the current progress of the game after reaching specific points. If the player dies, he/she can continue the game on the activated points. 
-## Collector
-It collects and stores the resources in the world.
-## Vehicle system
-The player can use different types of vehicles to travel along the map. Also this system can be used for fast travel on the map.
-## Telescope system
-A player can zoom in/out into a certain distance with a gadget which is placed in the world.
-## Easter eggs
-Game has hidden fun facts. If the player finds these easter eggs, it can earn different types of guns or skills. So, these eggs have trivial effects on the game process. 
+- [ ] Random event system
+- [ ] AI behavior(NPC)
+- [x] Minimap
+- [x] Menu layout (canvas)
+- [ ] Skill tree, skills
+- [ ] Inventory system and User Interface 
+- [ ] NPC voices, animations
+- [ ] World design
+- [ ] Weapons, armors: magic, physical damage and resistance
+- [ ] Melodies
+- [ ] Character class
+- [ ] Level up system
+- [ ] Character stats
+- [ ] Story changing actions
+- [ ] Stealth mechanic
+- [ ] Shop, coin mechanic
+- [ ] Day, night system, night vision
+- [ ] Craft - loot mechanic
+- [ ] Farming mechanic 
+- [ ] Drone system (extra camera view)
+- [ ] Map
+- [ ] Achievement system
+- [ ] Projectile mechanic
+- [ ] Waypoint system
+- [ ] Backpack, weight, speed mechanics
+- [ ] Pet system
+- [ ] Autopilot, auto run
+- [ ] Random NPC stats generation & Boss fight system
+- [ ] Check point, save system
+- [ ] Collector
+- [ ] Vehicle system
+- [ ] Telescope system
+- [ ] Easter eggs
 ## Newly Added Features
-1- Double jump
-2- Jetpack
+- [x] Double jump
+- [x] Jetpack
