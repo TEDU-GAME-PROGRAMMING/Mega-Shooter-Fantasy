@@ -49,7 +49,6 @@ public class PlayerMovement : MonoBehaviour
             
 
         }
-        // https://www.youtube.com/watch?v=tH57EInEb58 
         // dashing
 
         velocity.y += gravity * Time.deltaTime;
