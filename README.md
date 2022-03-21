@@ -55,4 +55,5 @@ The main player was an astronaut that was sent into an exploration mission. In h
 - [ ] Easter eggs
 ## Newly Added Features
 - [x] Double jump
-- [x] Jetpack
+- [x] Jetpack mechanic
+- [ ] Parachute mechanic
