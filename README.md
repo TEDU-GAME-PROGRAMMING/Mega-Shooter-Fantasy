@@ -56,4 +56,4 @@ The main player was an astronaut that was sent into an exploration mission. In h
 ## Newly Added Features
 - [x] Double jump
 - [x] Jetpack mechanic
-- [ ] Parachute mechanic
+- [x] Parachute mechanic
