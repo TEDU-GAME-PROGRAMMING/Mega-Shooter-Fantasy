@@ -1173,6 +1173,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a2475fc9eaaa444dbfb65a3e20e2c27, type: 3}
+--- !u!1 &1475444859 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3212928375060144911, guid: e006c84b6c0560d47a0d7950c6449d96,
+    type: 3}
+  m_PrefabInstance: {fileID: 3212928375294617619}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1475444863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475444859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef3ad25656b22384b983fe021e025536, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jetpackPower: 1
+  jetpackMaxDuration: 5
+  jetpackCurrentDuration: 5
+  FuelImage: {fileID: 2009562258}
 --- !u!1 &1552024282
 GameObject:
   m_ObjectHideFlags: 0
@@ -1741,6 +1763,18 @@ Transform:
   m_Father: {fileID: 794865402}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2009562258 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2009562258, guid: 82e2c2241456928498aa93def231ea99,
+    type: 3}
+  m_PrefabInstance: {fileID: 7050934325722364221}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2143746615
 GameObject:
   m_ObjectHideFlags: 0
@@ -1847,9 +1881,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3212928375060144908, guid: e006c84b6c0560d47a0d7950c6449d96,
         type: 3}
-      propertyPath: jetpackPower
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: FuelImage
+      value: 
+      objectReference: {fileID: 2009562258}
     - target: {fileID: 3212928375060144909, guid: e006c84b6c0560d47a0d7950c6449d96,
         type: 3}
       propertyPath: m_RootOrder
@@ -1910,18 +1944,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: First Person Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3212928375179724128, guid: e006c84b6c0560d47a0d7950c6449d96,
-        type: 3}
-      propertyPath: m_ClearFlags
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3212928376590042401, guid: e006c84b6c0560d47a0d7950c6449d96,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8739959040559776949, guid: e006c84b6c0560d47a0d7950c6449d96, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e006c84b6c0560d47a0d7950c6449d96, type: 3}
 --- !u!1001 &4680686353656672682
 PrefabInstance:
