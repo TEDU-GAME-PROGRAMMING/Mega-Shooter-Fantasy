@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2040,7 +2040,7 @@ PrefabInstance:
     - target: {fileID: 5949827477239927561, guid: 4e994a9ff990d034384f0e1928f206ab,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 20.95
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 5949827477239927561, guid: 4e994a9ff990d034384f0e1928f206ab,
         type: 3}
@@ -2082,6 +2082,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5949827477239927562, guid: 4e994a9ff990d034384f0e1928f206ab,
+        type: 3}
+      propertyPath: far clip plane
+      value: 4000
+      objectReference: {fileID: 0}
     - target: {fileID: 5949827477239927563, guid: 4e994a9ff990d034384f0e1928f206ab,
         type: 3}
       propertyPath: m_Name
@@ -2096,6 +2101,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7050934326044016932, guid: 82e2c2241456928498aa93def231ea99,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7050934326044016934, guid: 82e2c2241456928498aa93def231ea99,
         type: 3}
       propertyPath: m_Pivot.x
