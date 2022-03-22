@@ -82,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
             } 
         }
 
+
         if (isGrounded)
         {
             //double jump charge

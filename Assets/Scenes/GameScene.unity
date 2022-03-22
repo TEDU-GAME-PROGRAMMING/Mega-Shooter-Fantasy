@@ -921,13 +921,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 914125235}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1983, y: -4.24347, z: -1625}
+  m_LocalPosition: {x: -1859, y: -571, z: -1625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 794865402}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &932345512 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 932345512, guid: 82e2c2241456928498aa93def231ea99,
+    type: 3}
+  m_PrefabInstance: {fileID: 7050934325722364221}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1106995506 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8422892626600249584, guid: 214e08cd5e5d74c458e2a81b7ec2c84c,
@@ -1343,28 +1355,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a2475fc9eaaa444dbfb65a3e20e2c27, type: 3}
---- !u!1 &1475444859 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3212928375060144911, guid: e006c84b6c0560d47a0d7950c6449d96,
-    type: 3}
-  m_PrefabInstance: {fileID: 3212928375294617619}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1475444863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1475444859}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef3ad25656b22384b983fe021e025536, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jetpackPower: 1
-  jetpackMaxDuration: 5
-  jetpackCurrentDuration: 5
-  FuelImage: {fileID: 2009562258}
 --- !u!1 &1552024282
 GameObject:
   m_ObjectHideFlags: 0
@@ -2049,11 +2039,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3212928375060144908, guid: e006c84b6c0560d47a0d7950c6449d96,
-        type: 3}
+    - target: {fileID: 1475444863, guid: e006c84b6c0560d47a0d7950c6449d96, type: 3}
       propertyPath: FuelImage
       value: 
       objectReference: {fileID: 2009562258}
+    - target: {fileID: 1721775774, guid: e006c84b6c0560d47a0d7950c6449d96, type: 3}
+      propertyPath: staminaImage
+      value: 
+      objectReference: {fileID: 932345512}
     - target: {fileID: 3212928375060144909, guid: e006c84b6c0560d47a0d7950c6449d96,
         type: 3}
       propertyPath: m_RootOrder
