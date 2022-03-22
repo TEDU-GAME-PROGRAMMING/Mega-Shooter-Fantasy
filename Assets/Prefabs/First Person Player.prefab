@@ -208,6 +208,7 @@ GameObject:
   - component: {fileID: 3212928375060144908}
   - component: {fileID: 1168780644}
   - component: {fileID: 1475444863}
+  - component: {fileID: 1721775774}
   m_Layer: 0
   m_Name: First Person Player
   m_TagString: Player
@@ -264,20 +265,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 3212928375060144910}
+  velocity: {x: 0, y: 0, z: 0}
   speed: 12
   gravity: -9.18
   JumpHeight: 3
+  canDoubleJump: 1
+  anim: {fileID: 1168780644}
+  isAttacking: 0
   groundCheck: {fileID: 3212928376495597624}
+  isGrounded: 0
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-  anim: {fileID: 1168780644}
-  isAttacking: 0
-  velocity: {x: 0, y: 0, z: 0}
-  isGrounded: 0
-  canDoubleJump: 1
   parachuteResistance: -1200
+  isParachuteOn: 0
 --- !u!95 &1168780644
 Animator:
   serializedVersion: 4
@@ -314,6 +316,22 @@ MonoBehaviour:
   jetpackMaxDuration: 5
   jetpackCurrentDuration: 5
   FuelImage: {fileID: 0}
+--- !u!114 &1721775774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3212928375060144911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b5fc0ed2e5605b4a82164082b4e6ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  staminaPower: 50
+  staminaMaxDuration: 5
+  staminaCurrentDuration: 5
+  staminaImage: {fileID: 0}
 --- !u!1 &3212928375179724130
 GameObject:
   m_ObjectHideFlags: 0
