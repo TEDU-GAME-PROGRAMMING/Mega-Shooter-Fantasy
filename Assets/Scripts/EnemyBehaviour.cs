@@ -38,7 +38,7 @@ public class EnemyBehaviour : MonoBehaviour
             dir = Vector3.zero;
         }
         
-        dir = dir.normalized;
+       // dir = dir.normalized;
         Vector3 v = dir * speed * Time.deltaTime;
        // v = v.normalized;
         
@@ -50,7 +50,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
         else
         {
-            v.y = -Mathf.Sqrt(gravity * 2f);
+            v.y += (gravity * -2f);
         }
         this.GetComponent<Rigidbody>().velocity = v;// Mathf.Sqrt(JumpHeight * -2f * gravity);
 
