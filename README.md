@@ -36,7 +36,7 @@ The main player was an astronaut that was sent into an exploration mission. In h
 - [ ] Story changing actions
 - [ ] Stealth mechanic
 - [ ] Shop, coin mechanic
-- [ ] Day, night system, night vision
+- [x] Day, night system, night vision
 - [ ] Craft - loot mechanic
 - [ ] Farming mechanic 
 - [ ] Drone system (extra camera view)
