@@ -9,16 +9,19 @@ public class Granade : MonoBehaviour
     public float force = 700f;
 
     public GameObject exlosionEffect;
+    GameObject x;
     //private ParticleSystem system;
 
     private float countdown;
     bool hasExploded = false;
+    public float destroyTimer;
 
 
     // Start is called before the first frame update
     void Start()
     {
         countdown = delay;
+        destroyTimer = exlosionEffect.GetComponent<ParticleSystem>().main.duration;
     }
 
     // Update is called once per frame
@@ -31,10 +34,23 @@ public class Granade : MonoBehaviour
             Explode();
             hasExploded = true;
         }
+
+        if (hasExploded)
+        {
+            destroyTimer -= Time.deltaTime;
+        }
+            
+
+        if (destroyTimer <= 0)
+        {
+            Destroy(x);
+            Destroy(gameObject);
+        }
+
     }
     void Explode()
     {
-        Instantiate(exlosionEffect, transform.position,transform.rotation);
+       x = Instantiate(exlosionEffect, transform.position,transform.rotation);
         // Debug.Log("ufuk patladý");
        Collider[] collidersDest =  Physics.OverlapSphere(transform.position, radius );
 
@@ -57,10 +73,6 @@ public class Granade : MonoBehaviour
                 rb.AddExplosionForce(force, transform.position, radius);
             }
         }
-
-            //system.Stop(false, ParticleSystemStopBehavior.StopEmittingAndClear);
-            Destroy(gameObject);
-        // gameObject.GetComponent<ParticleSystem>().Stop();
-        //system.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
     }
+
 }
