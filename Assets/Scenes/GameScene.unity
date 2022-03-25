@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.0000182905, g: 0.000000033061536, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.000017033932, g: 0.000000025772884, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2060,10 +2060,18 @@ PrefabInstance:
       propertyPath: FuelImage
       value: 
       objectReference: {fileID: 2009562258}
+    - target: {fileID: 1664479195, guid: e006c84b6c0560d47a0d7950c6449d96, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a74b8e4e831053c46943378279c70e96, type: 2}
     - target: {fileID: 1721775774, guid: e006c84b6c0560d47a0d7950c6449d96, type: 3}
       propertyPath: staminaImage
       value: 
       objectReference: {fileID: 932345512}
+    - target: {fileID: 1832697029, guid: e006c84b6c0560d47a0d7950c6449d96, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 123ac6dc79004e54b8b352a7e64acdca, type: 2}
     - target: {fileID: 3212928375060144909, guid: e006c84b6c0560d47a0d7950c6449d96,
         type: 3}
       propertyPath: m_RootOrder
@@ -2291,6 +2299,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 653701334, guid: 82e2c2241456928498aa93def231ea99, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 932345511, guid: 82e2c2241456928498aa93def231ea99, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
