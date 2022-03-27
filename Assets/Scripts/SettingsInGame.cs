@@ -20,7 +20,19 @@ public class SettingsInGame : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
+            
             display = !display;
+            if(display == true)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                Time.timeScale = 0.0f;
+            } else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                Time.timeScale = 1.0f;
+            }
             settingsCanvas.SetActive(display);
         }
 

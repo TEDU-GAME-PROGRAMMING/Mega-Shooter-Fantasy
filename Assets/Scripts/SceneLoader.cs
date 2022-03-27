@@ -12,7 +12,12 @@ public class SceneLoader : MonoBehaviour
     public Slider loadingBar;
     public void LoadScene(int levelIndex)
     {
+        //Get the character stats
 
+        //Set the character stats 
+
+
+        //Load the scene
         StartCoroutine(LoadSceneAsynchronously(levelIndex));
 
     }
