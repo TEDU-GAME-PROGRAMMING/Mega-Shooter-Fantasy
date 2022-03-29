@@ -394,6 +394,7 @@ GameObject:
   - component: {fileID: 1475444863}
   - component: {fileID: 1721775774}
   - component: {fileID: 1679776499}
+  - component: {fileID: 3212928375294617621}
   m_Layer: 0
   m_Name: First Person Player
   m_TagString: Player
@@ -465,6 +466,9 @@ MonoBehaviour:
     m_Bits: 64
   parachuteResistance: -1200
   isParachuteOn: 0
+  healthImage: {fileID: 0}
+  healthMax: 100
+  healthCurrent: 0
 --- !u!95 &1168780644
 Animator:
   serializedVersion: 4
@@ -529,6 +533,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8b09be9a80212642abf707daca07ef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3212928375294617621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3212928375060144911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b7b2fede3786d84e9b1b1115997d0c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageThreshold: -12
+  isTakeFallDamage: 0
 --- !u!1 &3212928375179724130
 GameObject:
   m_ObjectHideFlags: 0
