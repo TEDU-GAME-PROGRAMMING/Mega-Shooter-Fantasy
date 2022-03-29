@@ -5,17 +5,24 @@ using UnityEngine;
 public class Inventory
 {
     //2D array for placing items. Indexing will be faster compared to the list structure.
-    private Item[,] inventory;
+    private Item[,] inventoryArray;
     private int currentSize = 0;
     private int lastX = 0, lastY = 0;
     private int width;
     private int height;
 
+    public Item[,] InventoryArray { get => inventoryArray; set => inventoryArray = value; }
+    public int CurrentSize { get => currentSize; set => currentSize = value; }
+    public int LastX { get => lastX; set => lastX = value; }
+    public int LastY { get => lastY; set => lastY = value; }
+    public int Width { get => width; set => width = value; }
+    public int Height { get => height; set => height = value; }
+
     public Inventory(int width, int height)
     {
-        this.width = width;
-        this.height = height;
-        inventory = new Item[width, height];
+        this.Width = width;
+        this.Height = height;
+        inventoryArray = new Item[width, height];
 
 
     }
@@ -29,28 +36,28 @@ public class Inventory
     public void AddItem(Item item)
     {
 
-        inventory[lastX, lastY] = item;
-        lastX++;
-        if (lastX > width)
+        inventoryArray[LastX, LastY] = item;
+        LastX++;
+        if (LastX > Width)
         {
-            lastY++;
-            lastX = 0;
+            LastY++;
+            LastX = 0;
         }
-        currentSize++;
+        CurrentSize++;
 
     }
 
     public void AddItem(Item item, int x, int y)
     {
-        if(x > width || y > height || y < 0 || x < 0 )
+        if(x > Width || y > Height || y < 0 || x < 0 )
         {
             return;
         }
-        if(inventory[x, y] == null)
+        if(inventoryArray[x, y] == null)
         {
-            currentSize++;
+            CurrentSize++;
         }
-        inventory[x, y] = item;
+        inventoryArray[x, y] = item;
         
 
     }
@@ -58,26 +65,26 @@ public class Inventory
     //Removed the first instance of the item found in the inventory.
     public void RemoveItem(Item item)
     {
-        inventory[lastX, lastY] = null;
+        inventoryArray[LastX, LastY] = null;
 
     }
 
     //Removed the instanve of the item found at the index i of the inventory;
     public void RemoveItem(Item item, int x, int y)
     {
-        if (x > width || y > height || y < 0 || x < 0)
+        if (x > Width || y > Height || y < 0 || x < 0)
         {
             return;
         }
 
-        if (inventory[x, y] != null)
+        if (inventoryArray[x, y] != null)
         {
-            currentSize--;
+            CurrentSize--;
         } else
         {
 
         }
-        inventory[x, y] = null;
+        inventoryArray[x, y] = null;
 
     }
 
