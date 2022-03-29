@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class PlayerMovement : MonoBehaviour
@@ -28,16 +29,23 @@ public class PlayerMovement : MonoBehaviour
     public float parachuteResistance = -1200f; //up to 900-1000 with skill
     public bool isParachuteOn = false;
 
-    //TODO isFalling and fall damage
-    //TODO add stamina
+    public Image healthImage;
+    public float healthMax = 100;
+    //TODO add get setter
+    public float healthCurrent;
 
     //TODO solve bugs: Near the muontain velocity Y decreases, => increase the number of ground check objects
     //TODO solve bugs: when player top of the squirrel, velocity Y decreases => ?
-
+    private void Start()
+    {
+         healthCurrent = healthMax;
+    }
 
     // Update is called once per frame
     void Update()
     {
+
+        UpdateUI();
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
@@ -153,5 +161,15 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log(timerRemaning);
         }
        
-    } 
+    }
+
+    public void UpdateUI()
+    {
+        if(healthImage != null)
+        {
+            healthImage.fillAmount = healthCurrent / healthMax;
+        }
+        
+
+    }
 }
