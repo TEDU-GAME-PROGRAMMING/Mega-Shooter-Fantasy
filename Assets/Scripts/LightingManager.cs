@@ -11,9 +11,9 @@ public class LightingManager : MonoBehaviour
 
     //variable
 
-    [SerializeField] float D_NCycleDuration = 20;
+    [SerializeField] float D_NCycleDuration = 1200;
     //[SerializeField, Range(0, 24)] private float TimeOfDay;
-    [SerializeField, Range(0, 20)] private float TimeOfDay;
+    [SerializeField, Range(0, 1200)] private float TimeOfDay;
 
 
 

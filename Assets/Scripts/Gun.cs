@@ -22,12 +22,14 @@ public class Gun : MonoBehaviour
 
     public Animator animator;
 
-
+    public AudioSource shootingSound;
+    //public AudioSource ReloadingSound;
     private void Start()
     {
-        
 
-            currentAmmo = maxAmmo;
+        shootingSound = GetComponent<AudioSource>();
+        //ReloadingSound = GetComponent<AudioSource>(); 
+        currentAmmo = maxAmmo;
         
     }
     // Update is called once per frame
@@ -39,7 +41,8 @@ public class Gun : MonoBehaviour
         }
         if (currentAmmo <= 0)
         {
-           StartCoroutine(Reload());
+            //ReloadingSound.Play();
+            StartCoroutine(Reload());
             return;
         }
         if (Input.GetButton("Fire1") && Time.time >= nexttimeToFire) {
@@ -50,6 +53,7 @@ public class Gun : MonoBehaviour
     }
     IEnumerator Reload()
     {
+        //shootingSound.Play(1);
         isReloading = true;
         Debug.Log("Reload");
         animator.SetBool("Reloading", true);
@@ -62,6 +66,7 @@ public class Gun : MonoBehaviour
     }
     public void Shoot()
     {
+        shootingSound.Play();
         muzzleFlash.Play();
 
         currentAmmo--;
