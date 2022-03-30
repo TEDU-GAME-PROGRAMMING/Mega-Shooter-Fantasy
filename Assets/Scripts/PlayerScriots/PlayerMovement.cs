@@ -25,7 +25,10 @@ public class PlayerMovement : MonoBehaviour
     public bool isGrounded;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
-    
+
+    public LayerMask teleportMask;
+    public bool isTeleportBack = false;
+
     public float parachuteResistance = -1200f; //up to 900-1000 with skill
     public bool isParachuteOn = false;
 
@@ -39,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
          healthCurrent = healthMax;
+        
     }
 
     // Update is called once per frame
@@ -48,6 +52,20 @@ public class PlayerMovement : MonoBehaviour
         UpdateUI();
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+        if(Physics.CheckSphere(groundCheck.position, groundDistance, teleportMask) && !isTeleportBack)
+        {
+            isTeleportBack = true;
+            this.transform.position = new Vector3(-64f, -564f, -29);
+
+        }
+
+        //teleport back
+        if (Physics.CheckSphere(groundCheck.position, groundDistance, teleportMask) && isTeleportBack)
+        {
+            isTeleportBack = false;
+            this.transform.position = new Vector3(-42f, 4f, -32f);
+        }
 
         //Movement of the player
         float x = Input.GetAxis("Horizontal");
