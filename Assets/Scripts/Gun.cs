@@ -66,7 +66,7 @@ public class Gun : MonoBehaviour
     }
     public void Shoot()
     {
-        shootingSound.Play();
+        shootingSound.PlayOneShot(shootingSound.clip);
         muzzleFlash.Play();
 
         currentAmmo--;
