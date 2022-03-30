@@ -3,8 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Linq;
+
 public class InventoryUIManagement : MonoBehaviour, IPointerDownHandler
 {
+
+    /*
+    TODO
+
+        Invetory and Options menu both set the time scale but only game manager should do it to 
+        prevent conflicts between ui elements 
+
+
+    Add inventory text on top of the inventory
+
+    Ýnventory item name displayed below
+
+     Same items should stack
+
+     Check if item type is weapon, add to weapon holder
+
+
+
+     */
+
+
     public int clickedInventoryX = 0;
     public int clickedInventoryY = 0;
     private Inventory inventory;
@@ -41,7 +64,7 @@ public class InventoryUIManagement : MonoBehaviour, IPointerDownHandler
 
         for(int y = 0; y < inventory.Width; y++)
         {
-            for (int x = 0; x < inventory.Width; x++)
+            for (int x = 0; x < inventory.Height; x++)
             {
                 //inventory.InventoryArray[x, y] = new Item();
             }
@@ -54,25 +77,42 @@ public class InventoryUIManagement : MonoBehaviour, IPointerDownHandler
 
     }
 
+
+
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.I))
+        System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
+
+        stopwatch.Start();
+
+        if (Input.GetKeyDown(KeyCode.I))
         {
 
             inventoryOpen = !inventoryOpen;
             inventoryBackground.SetActive(inventoryOpen);
+            if (inventoryOpen == true)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                Time.timeScale = 0.0f;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                Time.timeScale = 1.0f;
+            }
 
         }
 
         if (inventoryOpen)
         {
             List<RaycastResult> results = new List<RaycastResult>();
-
+            
             pointerEventData = new PointerEventData(EventSystem.current);
             pointerEventData.position = Input.mousePosition;
             graphicRaycaster.Raycast(pointerEventData, results);
-
             /*            
                 On left click, either select and move the item or 
                 deselect it and place it to the corresponding inventory slot
@@ -80,21 +120,67 @@ public class InventoryUIManagement : MonoBehaviour, IPointerDownHandler
             */
             if (Input.GetMouseButtonDown(0))
             {
-                if(isSelected)
+                if (results.Any())
                 {
+                    //If the mouse clicked at pos brought a inventory grid, check if the mouse currently selects any obj
+                    if (isSelected)
+                    {
+                        //If isSelected, then another item is being dragged,
+                        //so switch them 
+                        GameObject selectedNew = results[0].gameObject;
+                        GameObject selectedOldObjectParent = selectedObject.transform.parent.gameObject;
+
+                        selectedObject.transform.parent = selectedNew.transform;
+                        selectedObject.transform.localPosition = Vector3.zero;
+                        selectedObject.transform.parent = selectedNew.transform.parent;
+                        //selectedObject.GetComponent<RectTransform>().x 
+
+                        selectedNew.transform.parent = selectedOldObjectParent.transform;
+
+                        selectedObject.GetComponent<Image>().raycastTarget = true;
+                        selectedNew.GetComponent<Image>().raycastTarget = false;
+
+                        //selectedNew.GetComponent<Image>().sprite = selectedObject.GetComponent<Image>().sprite;
+                        //selectedObject.GetComponent<Image>().color = Color.red;
+
+
+                        selectedObject = selectedNew;
 
 
 
-                } else
-                {
-                    selectedObject = results[0].gameObject;
+                    }
+                    else
+                    {
+
+                        selectedObject = results[0].gameObject;
+                        isSelected = true;
+
+                        //For detecting the objects below the selected obj.
+                        selectedObject.GetComponent<Image>().raycastTarget = false;
+
+                    }
 
                 }
+                else
+                {
+                    if(selectedObject != null)
+                    {
+                        isSelected = false;
+                        selectedObject.GetComponent<Image>().raycastTarget = true;
+
+                        selectedObject.transform.localPosition = Vector3.zero;
+
+                    }
+                }
+
 
 
             }
             if(isSelected)
+            {
                 selectedObject.transform.position = Input.mousePosition;
+
+            }
 
             foreach (RaycastResult result in results)
             {
@@ -102,6 +188,12 @@ public class InventoryUIManagement : MonoBehaviour, IPointerDownHandler
             }
 
         }
+
+        stopwatch.Stop();
+        double ticks = stopwatch.ElapsedTicks;
+        double seconds = ticks / System.Diagnostics.Stopwatch.Frequency;
+        double milliseconds = (ticks / System.Diagnostics.Stopwatch.Frequency) * 1000;
+        //Debug.Log(string.Format("MyMethod took {0} ms to complete", milliseconds));
 
     }
 

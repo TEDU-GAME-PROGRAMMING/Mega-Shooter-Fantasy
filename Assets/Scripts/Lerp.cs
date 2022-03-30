@@ -15,7 +15,7 @@ public class Lerp : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        mate = this.GetComponent<LineRenderer>().material;
+        mate = this.GetComponent<MeshRenderer>().material;
         light = this.GetComponent<Light>();
     }
     // Update is called once per frame

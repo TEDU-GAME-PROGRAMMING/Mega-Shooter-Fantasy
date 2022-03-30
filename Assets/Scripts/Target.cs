@@ -20,7 +20,9 @@ public class Target : MonoBehaviour
 
     public void Die()
     {
-        Destroy(gameObject);
+        this.GetComponent<Animator>().Play("Die");
+        Destroy(this.GetComponent<EnemyBehaviour>());
+        Destroy(gameObject, 2f);
     }
 
 
