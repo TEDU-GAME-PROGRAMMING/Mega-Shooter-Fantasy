@@ -59,3 +59,4 @@ The main player was an astronaut that was sent into an exploration mission. In h
 - [x] Parachute mechanic
 - [x] Sprint/Stamina mechanic
 - [x] Fall damage mechanic
+- [x] Elevator mechanic
