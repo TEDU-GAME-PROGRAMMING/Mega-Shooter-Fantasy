@@ -22,12 +22,12 @@ public class Gun : MonoBehaviour
 
     public Animator animator;
 
-    public AudioSource shootingSound;
+    public AudioSource[] shootingSound;
     //public AudioSource ReloadingSound;
     private void Start()
     {
 
-        shootingSound = GetComponent<AudioSource>();
+        shootingSound = GetComponents<AudioSource>();
         //ReloadingSound = GetComponent<AudioSource>(); 
         currentAmmo = maxAmmo;
         
@@ -54,11 +54,13 @@ public class Gun : MonoBehaviour
     IEnumerator Reload()
     {
         //shootingSound.Play(1);
+        
         isReloading = true;
         Debug.Log("Reload");
         animator.SetBool("Reloading", true);
-
+        shootingSound[1].PlayOneShot(shootingSound[1].clip);
         yield return new WaitForSeconds(reloadTime - .25f);
+        
         animator.SetBool("Reloading", false);
         yield return new WaitForSeconds(.25f);
         currentAmmo = maxAmmo;
@@ -66,7 +68,7 @@ public class Gun : MonoBehaviour
     }
     public void Shoot()
     {
-        shootingSound.PlayOneShot(shootingSound.clip);
+        shootingSound[0].PlayOneShot(shootingSound[0].clip);
         muzzleFlash.Play();
 
         currentAmmo--;

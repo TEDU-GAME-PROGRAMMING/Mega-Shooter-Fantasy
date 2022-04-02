@@ -11,11 +11,14 @@ public class Stamina : MonoBehaviour
     public float staminaMaxDuration = 5;
     public float staminaCurrentDuration = 5;
     public Image staminaImage;
+    public float OriginalSpeed ;
 
 
     void Start()
     {
-        player = GameManager.player.GetComponent<PlayerMovement>();
+        player = GameManager.playerStats.GetComponent<PlayerMovement>();
+        OriginalSpeed = GameManager.playerStats.speed;
+        //Debug.Log(OriginalSpeed);
     }
 
     // Update is called once per frame
@@ -32,7 +35,8 @@ public class Stamina : MonoBehaviour
         else
         {
 
-            player.speed = 12;
+            player.speed = OriginalSpeed;
+           // Debug.Log(OriginalSpeed);
             //stamina charge
             if (staminaCurrentDuration < staminaMaxDuration)
             {
