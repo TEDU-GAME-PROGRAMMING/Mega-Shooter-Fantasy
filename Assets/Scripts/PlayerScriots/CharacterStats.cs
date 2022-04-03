@@ -22,11 +22,11 @@ public class CharacterStats : MonoBehaviour
     {
        
         //currentHealth = maxHealth;
-       
+       GameManager.playerStats.healthMax += maxHealth * 2;
     }
     private void Start()
     {
-        GameManager.playerStats.healthMax += maxHealth * 2;
+        
        
 
     }

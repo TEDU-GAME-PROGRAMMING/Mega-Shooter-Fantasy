@@ -18,8 +18,8 @@ TagManager:
   - Ground
   - Postprocessing
   - teleport_Early
-  - 
-  - 
+  - Player
+  - PlayerBullet
   - 
   - 
   - 

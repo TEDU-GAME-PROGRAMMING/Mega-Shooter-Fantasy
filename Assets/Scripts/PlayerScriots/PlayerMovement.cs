@@ -26,9 +26,6 @@ public class PlayerMovement : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
-    public LayerMask teleportMask;
-    public bool isTeleportBack = false;
-
     public float parachuteResistance = -1200f; //up to 900-1000 with skill
     public bool isParachuteOn = false;
 
@@ -38,7 +35,6 @@ public class PlayerMovement : MonoBehaviour
     public float healthCurrent;
 
     //TODO solve bugs: Near the muontain velocity Y decreases, => increase the number of ground check objects
-    //TODO solve bugs: when player top of the squirrel, velocity Y decreases => ?
     
     private void Start()
     {
@@ -54,21 +50,8 @@ public class PlayerMovement : MonoBehaviour
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if(Physics.CheckSphere(groundCheck.position, groundDistance, teleportMask) && !isTeleportBack)
-        {
-            isTeleportBack = true;
-            //SceneManager.LoadScene("First-Dungeon-Scene");
-            this.transform.position = new Vector3(-776.2f, -1325.5f, 141.8056f);
 
-        }
 
-        //teleport back
-        if (Physics.CheckSphere(groundCheck.position, groundDistance, teleportMask) && isTeleportBack)
-        {
-            isTeleportBack = false;
-           //SceneManager.LoadScene("GameScene");
-            this.transform.position = new Vector3(-42f, 4f, -32f);
-        }
 
         //Movement of the player
         float x = Input.GetAxis("Horizontal");

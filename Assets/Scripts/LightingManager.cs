@@ -8,18 +8,26 @@ public class LightingManager : MonoBehaviour
     //references
     [SerializeField] private Light DirectionalLight;
     [SerializeField] private LightingPreset Preset;
+    
 
     //variable
 
     [SerializeField] float D_NCycleDuration = 1200;
-    //[SerializeField, Range(0, 24)] private float TimeOfDay;
     [SerializeField, Range(0, 1200)] private float TimeOfDay;
-
+    public static bool isDay = false;
 
 
 
     private void Update()
     {
+        if(TimeOfDay > (D_NCycleDuration/4) && TimeOfDay < 3 * (D_NCycleDuration / 4))
+        {
+            isDay = true;
+        }
+        else{
+            isDay = false;
+        }
+
         if(Preset == null)
         {
             return;
@@ -43,6 +51,8 @@ public class LightingManager : MonoBehaviour
 
         RenderSettings.ambientLight = Preset.AmbientColor.Evaluate(timePercent);
         RenderSettings.fogColor = Preset.FogColor.Evaluate(timePercent);
+        //map to 0 - 3.14
+        DirectionalLight.intensity = Mathf.Sin(Mathf.PI * timePercent);
 
         if(DirectionalLight != null)
         {
