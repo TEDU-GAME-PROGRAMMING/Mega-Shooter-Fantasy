@@ -15,6 +15,7 @@ public class Gun : MonoBehaviour
     private bool isReloading = false;
 
     public Camera fpsCam;
+    public LayerMask layerMask ;
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
 
@@ -26,7 +27,6 @@ public class Gun : MonoBehaviour
     //public AudioSource ReloadingSound;
     private void Start()
     {
-
         shootingSound = GetComponents<AudioSource>();
         //ReloadingSound = GetComponent<AudioSource>(); 
         currentAmmo = maxAmmo;
@@ -74,7 +74,7 @@ public class Gun : MonoBehaviour
         currentAmmo--;
 
         RaycastHit hit;
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range)) {
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range, layerMask)) {
 
             //Debug.Log(hit.transform.name);
             Target target = hit.transform.GetComponent<Target>();
