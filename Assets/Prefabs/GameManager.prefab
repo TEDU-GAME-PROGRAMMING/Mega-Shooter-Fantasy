@@ -57,3 +57,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca7a131c5fe279f4ea9230c814825b2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settingsCanvas: {fileID: 0}
+  settingCanvasName: SettingsCanvas
+  display: 0

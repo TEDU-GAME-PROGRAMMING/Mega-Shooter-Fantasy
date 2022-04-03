@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SettingsMenu.unity
     guid: d1f3bf9343e807248b05badb09ad5bc7
+  - enabled: 1
+    path: Assets/Scenes/First-Dungeon-Scene.unity
+    guid: 0bc798add0d471e488af5a2c8e85fe7b
   m_configObjects: {}

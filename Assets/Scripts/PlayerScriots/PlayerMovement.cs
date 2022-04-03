@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -39,10 +39,11 @@ public class PlayerMovement : MonoBehaviour
 
     //TODO solve bugs: Near the muontain velocity Y decreases, => increase the number of ground check objects
     //TODO solve bugs: when player top of the squirrel, velocity Y decreases => ?
+    
     private void Start()
     {
-         healthCurrent = healthMax;
-        
+        healthCurrent = healthMax;
+
     }
 
     // Update is called once per frame
@@ -56,7 +57,8 @@ public class PlayerMovement : MonoBehaviour
         if(Physics.CheckSphere(groundCheck.position, groundDistance, teleportMask) && !isTeleportBack)
         {
             isTeleportBack = true;
-            this.transform.position = new Vector3(-64f, -564f, -29);
+            //SceneManager.LoadScene("First-Dungeon-Scene");
+            this.transform.position = new Vector3(-776.2f, -1325.5f, 141.8056f);
 
         }
 
@@ -64,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
         if (Physics.CheckSphere(groundCheck.position, groundDistance, teleportMask) && isTeleportBack)
         {
             isTeleportBack = false;
+           //SceneManager.LoadScene("GameScene");
             this.transform.position = new Vector3(-42f, 4f, -32f);
         }
 

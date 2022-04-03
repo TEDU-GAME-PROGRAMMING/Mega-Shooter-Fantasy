@@ -397,6 +397,8 @@ GameObject:
   - component: {fileID: 1721775774}
   - component: {fileID: 1679776499}
   - component: {fileID: 3212928375294617621}
+  - component: {fileID: 616497208}
+  - component: {fileID: 616497209}
   m_Layer: 0
   m_Name: First Person Player
   m_TagString: Player
@@ -527,6 +529,7 @@ MonoBehaviour:
   staminaMaxDuration: 5
   staminaCurrentDuration: 5
   staminaImage: {fileID: 0}
+  OriginalSpeed: 0
 --- !u!114 &1679776499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -553,6 +556,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageThreshold: -12
   isTakeFallDamage: 0
+--- !u!114 &616497208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3212928375060144911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38a97fe5b5557e940a08674086191779, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons: {fileID: 3212928375060144911}
+  maxHealth: 100
+  Speed:
+    StartingValue: 0
+  strength:
+    StartingValue: 0
+  endurance:
+    StartingValue: 0
+  dexterity:
+    StartingValue: 0
+  intelligence:
+    StartingValue: 0
+  damage:
+    StartingValue: 0
+  armor:
+    StartingValue: 0
+  display: 0
+--- !u!114 &616497209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3212928375060144911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00966d0e922b4ec4c81169789d7042a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3212928375179724130
 GameObject:
   m_ObjectHideFlags: 0
@@ -1721,7 +1765,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 93fba0b1bf5014543918fa775911b6a3, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
