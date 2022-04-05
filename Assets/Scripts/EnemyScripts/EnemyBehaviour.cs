@@ -28,6 +28,7 @@ public class EnemyBehaviour : MonoBehaviour
         Vector3 dir = (GameManager.player.transform.position - this.transform.position);
         if (IsInRange() && IsInView())
         {
+            this.GetComponent<Animator>().Play("RunForwardBattle");
             dir = GameManager.player.transform.position - transform.position;
             this.transform.LookAt(GameManager.player.transform);
 
