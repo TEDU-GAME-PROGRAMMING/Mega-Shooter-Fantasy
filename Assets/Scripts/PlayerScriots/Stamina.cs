@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Stamina : MonoBehaviour
 {
     // Start is called before the first frame update
-    PlayerMovement player = new PlayerMovement();
+    PlayerMovement player;
     public float staminaPower = 50;   
     public float staminaMaxDuration = 5;
     public float staminaCurrentDuration = 5;

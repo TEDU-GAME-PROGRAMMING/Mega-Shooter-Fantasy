@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Jetpack : MonoBehaviour
 {
    
-    PlayerMovement player = new PlayerMovement();
+    PlayerMovement player;
     public float jetpackPower = 0;   //max 2
     public float jetpackMaxDuration = 5;
     public float jetpackCurrentDuration = 5;
