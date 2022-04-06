@@ -39,7 +39,7 @@ public class Gun : MonoBehaviour
         {
             return;
         }
-        if (currentAmmo <= 0)
+        if (currentAmmo <= 0 || (Input.GetKeyDown(KeyCode.R) && currentAmmo != maxAmmo))
         {
             //ReloadingSound.Play();
             StartCoroutine(Reload());

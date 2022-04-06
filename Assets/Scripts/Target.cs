@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    public float health = 50f;
+    public float healthMax = 50f;
+    public float healthCureent;
+
+    private void Start()
+    {
+        healthCureent = healthMax;
+    }
 
     public void TakeDamage(float amount)
     {
-        health -= amount;
+        healthCureent -= amount;
 
-        if (health <= 0f )
+        if (healthCureent <= 0f )
         {
             Die();
         }
