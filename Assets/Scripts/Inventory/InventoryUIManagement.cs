@@ -27,15 +27,11 @@ public class InventoryUIManagement : MonoBehaviour, IPointerDownHandler
 
      */
 
-
     public int clickedInventoryX = 0;
     public int clickedInventoryY = 0;
     private Inventory inventory;
     public bool inventoryOpen = true;
     public float paddingX = 20f, paddingY = 20f;
-
-    public int inventoryXSize = 0;
-    public int inventoryYSize = 0;
 
 
     public GraphicRaycaster graphicRaycaster;
@@ -60,13 +56,32 @@ public class InventoryUIManagement : MonoBehaviour, IPointerDownHandler
     void Start()
     {
         //TODO: DO NOT FORGET TO REPLACE THE INVENTORY INSTANCE TO THE CREATED ONE IN PLAYER SCRIPT
-        inventory = new Inventory(inventoryXSize, inventoryYSize);
+        inventory = GameManager.player.GetComponent<Player>().Inventory;
 
         for(int y = 0; y < inventory.Width; y++)
         {
             for (int x = 0; x < inventory.Height; x++)
             {
+                GameObject instantiatedItemSlot = Instantiate(inventoryGrid, this.transform);
+
+
+                instantiatedItemSlot.GetComponent<RectTransform>().pivot = new Vector2(0f, 1f);
+                instantiatedItemSlot.GetComponent<RectTransform>().anchorMin = new Vector2(0, 1);
+                instantiatedItemSlot.GetComponent<RectTransform>().anchorMax = new Vector2(0, 1);
+
+                instantiatedItemSlot.transform.localPosition = new Vector3(x * instantiatedItemSlot.GetComponent<RectTransform>().rect.width + paddingX,
+                                                                           y * instantiatedItemSlot.GetComponent<RectTransform>().rect.height + paddingX,
+                                                                           0
+                                                                            );
+                instantiatedItemSlot.transform.parent = inventoryBackground.transform;
                 //inventory.InventoryArray[x, y] = new Item();
+
+                //instantiatedItemSlot.GetComponent<RectTransform>().sizeDelta = size;
+
+                //instantiatedItemSlot.transform.parent = canvas.transform;
+                //instantiatedItemSlot.transform.position = new Vector3(a * buttonWidth + offsetX / 2, i * buttonHeight + offsetY / 2);
+                //inventoryGridArray[a, i] = gu.gameObject;
+
             }
         }
 

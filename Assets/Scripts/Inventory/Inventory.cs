@@ -35,15 +35,24 @@ public class Inventory
 
     public void AddItem(Item item)
     {
-
-        inventoryArray[LastX, LastY] = item;
-        LastX++;
-        if (LastX > Width)
+        if(CurrentSize < Width * Height)
         {
-            LastY++;
-            LastX = 0;
+            if (LastX >= Width)
+            {
+                LastY++;
+                LastX = 0;
+            }
+            if (LastY >= Height)
+            {
+                LastY = 0;
+            }
+            CurrentSize++;
+
+            Debug.Log("Added at " + lastX + " " + lastY +"| current " + CurrentSize );
+            inventoryArray[LastX, LastY] = item;
+            LastX++;
+
         }
-        CurrentSize++;
 
     }
 

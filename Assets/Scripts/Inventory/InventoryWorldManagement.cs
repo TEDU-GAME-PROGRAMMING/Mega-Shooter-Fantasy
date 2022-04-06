@@ -6,10 +6,6 @@ public class InventoryWorldManagement : MonoBehaviour
 {
     // Start is called before the first frame update
     public float pickUpDistance = 5.0f;
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -21,9 +17,16 @@ public class InventoryWorldManagement : MonoBehaviour
             Physics.Raycast(this.transform.position, this.transform.forward, out hit, pickUpDistance);
             
             
-            if(hit.collider != null)
+            if(hit.collider != null && hit.collider.gameObject.GetComponent<Item>() != null )
             {
-                Item item = new Item(hit.collider.gameObject);
+                Debug.Log(hit.collider.name);
+                Item item = new Item();
+                item.AttackSpeed = 1.2f;
+                item.Damage = 13.3f;
+                item.Durability = 3.5f;
+                item.ItemID = 3;
+                item.Weight = 3.5f;
+                item.ItemName = "Item";
                 GameManager.player.GetComponent<Player>().Inventory.AddItem(item);
 
             }
