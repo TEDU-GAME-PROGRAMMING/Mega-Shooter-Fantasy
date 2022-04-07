@@ -45,6 +45,9 @@ public class InventoryUIManagement : MonoBehaviour, IPointerDownHandler
 
     public GameObject selectedObject;
 
+    public GameObject[,] inventoryUIArray;
+    public Item[,] inventoryItemArray;
+
     public bool isSelected = false;
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -57,23 +60,23 @@ public class InventoryUIManagement : MonoBehaviour, IPointerDownHandler
     {
         //TODO: DO NOT FORGET TO REPLACE THE INVENTORY INSTANCE TO THE CREATED ONE IN PLAYER SCRIPT
         inventory = GameManager.player.GetComponent<Player>().Inventory;
-
-        for(int y = 0; y < inventory.Width; y++)
+        inventoryUIArray = new GameObject[inventory.Width, inventory.Height];
+        for (int y = 0; y < inventory.Width; y++)
         {
             for (int x = 0; x < inventory.Height; x++)
             {
                 GameObject instantiatedItemSlot = Instantiate(inventoryGrid, this.transform);
 
-
+                instantiatedItemSlot.name = instantiatedItemSlot.name + x +" " + y;
                 instantiatedItemSlot.GetComponent<RectTransform>().pivot = new Vector2(0f, 1f);
                 instantiatedItemSlot.GetComponent<RectTransform>().anchorMin = new Vector2(0, 1);
                 instantiatedItemSlot.GetComponent<RectTransform>().anchorMax = new Vector2(0, 1);
-
-                instantiatedItemSlot.transform.localPosition = new Vector3(x * instantiatedItemSlot.GetComponent<RectTransform>().rect.width + paddingX,
-                                                                           y * instantiatedItemSlot.GetComponent<RectTransform>().rect.height + paddingX,
-                                                                           0
-                                                                            );
+                instantiatedItemSlot.GetComponent<RectTransform>().anchoredPosition = new Vector3(x * (instantiatedItemSlot.GetComponent<RectTransform>().rect.width + paddingX),
+                                                           -y * (instantiatedItemSlot.GetComponent<RectTransform>().rect.height + paddingY),
+                                                           0
+                                                            );
                 instantiatedItemSlot.transform.parent = inventoryBackground.transform;
+                inventoryUIArray[x, y] = instantiatedItemSlot;
                 //inventory.InventoryArray[x, y] = new Item();
 
                 //instantiatedItemSlot.GetComponent<RectTransform>().sizeDelta = size;
@@ -183,7 +186,9 @@ public class InventoryUIManagement : MonoBehaviour, IPointerDownHandler
                         isSelected = false;
                         selectedObject.GetComponent<Image>().raycastTarget = true;
 
-                        selectedObject.transform.localPosition = Vector3.zero;
+                        //selectedObject.transform.localPosition = Vector3.zero;
+                        selectedObject.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
+
 
                     }
                 }
@@ -210,6 +215,19 @@ public class InventoryUIManagement : MonoBehaviour, IPointerDownHandler
         double milliseconds = (ticks / System.Diagnostics.Stopwatch.Frequency) * 1000;
         //Debug.Log(string.Format("MyMethod took {0} ms to complete", milliseconds));
 
+    }
+
+    public void AddItem(GameObject pickedObject)
+    {
+        //iki tane add yapinca lastx lasty baska yerde degisiyor bug. simdilik 0 0 
+        Item pickedItem = pickedObject.GetComponent<Item>();
+
+        Item item = new Item();
+        inventory.CopyItem(item, pickedItem);
+        Debug.Log(inventoryUIArray[0, 0]);
+        inventoryUIArray[0, 0].transform.Find("Item").GetComponent<Image>().sprite = pickedObject.GetComponent<Item>().itemImage;
+        //inventoryItemArray[0, 0] = item;
+        //inventoryUIArray[inventory.LastX, inventory.LastY].gameObject.AddComponent(typeof(SphereCollider));
     }
 
     public void DisplayStatsOnHover()

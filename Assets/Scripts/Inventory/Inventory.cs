@@ -33,7 +33,24 @@ public class Inventory
 
     }
 
-    public void AddItem(Item item)
+    public bool CopyItem(Item item1, Item item2)
+    {
+        //LOOK AT HERE WHEN AN COPY ERROR OCCURS
+        if (item1 == null || item2 == null)
+            return false;
+
+        item2.AttackSpeed = item1.AttackSpeed;
+        item2.Damage = item1.Damage;
+        item2.Durability = item1.Durability;
+        item2.ItemID = item1.ItemID;
+        item2.Weight = item1.Weight;
+        item2.ItemName = item1.ItemName;
+        item2.itemImage = item1.itemImage;
+
+        return true;
+    }
+
+    public bool AddItem(Item item)
     {
         if(CurrentSize < Width * Height)
         {
@@ -51,7 +68,11 @@ public class Inventory
             Debug.Log("Added at " + lastX + " " + lastY +"| current " + CurrentSize );
             inventoryArray[LastX, LastY] = item;
             LastX++;
+            return true;
 
+        } else
+        {
+            return false;
         }
 
     }

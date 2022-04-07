@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Item
+using UnityEngine.UI;
+public class Item : MonoBehaviour
 {
-    private string itemName = "";
-    private int itemID;
-    private float damage, durability, weight, attackSpeed;
-    private int minWearingLevel = 0;
+    public string itemName = "";
+    public int itemID;
+    public float damage, durability, weight, attackSpeed;
+    public int minWearingLevel = 0;
     //private AdditionalPowerUps powerUp;
+
+    public Sprite itemImage;
+
 
     public Item()
     {

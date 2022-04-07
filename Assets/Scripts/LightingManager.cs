@@ -52,7 +52,8 @@ public class LightingManager : MonoBehaviour
         RenderSettings.ambientLight = Preset.AmbientColor.Evaluate(timePercent);
         RenderSettings.fogColor = Preset.FogColor.Evaluate(timePercent);
         //map to 0 - 3.14
-        DirectionalLight.intensity = Mathf.Sin(Mathf.PI * timePercent);
+
+        DirectionalLight.intensity = Mathf.Sin(Mathf.PI * timePercent) - 0.2f;
 
         if(DirectionalLight != null)
         {
