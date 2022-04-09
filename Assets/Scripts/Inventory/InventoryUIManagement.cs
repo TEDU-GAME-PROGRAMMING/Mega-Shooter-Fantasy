@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Linq;
-
+using TMPro;
 public class InventoryUIManagement : MonoBehaviour, IPointerDownHandler
 {
 
@@ -224,8 +224,12 @@ public class InventoryUIManagement : MonoBehaviour, IPointerDownHandler
 
         Item item = new Item();
         inventory.CopyItem(item, pickedItem);
-        Debug.Log(inventoryUIArray[0, 0]);
-        inventoryUIArray[0, 0].transform.Find("Item").GetComponent<Image>().sprite = pickedObject.GetComponent<Item>().itemImage;
+        Debug.Log("AFTER " + inventory.LastX + "  " + inventory.LastY);
+        inventory.LastX--;
+        inventoryUIArray[inventory.LastX, inventory.LastY].transform.Find("Item").GetComponent<Image>().sprite = pickedObject.GetComponent<Item>().itemImage;
+        inventoryUIArray[inventory.LastX, inventory.LastY].transform.Find("ItemName").GetComponent<TMP_Text>().text = pickedItem.itemName;
+        inventory.LastX++;
+        //(inventory.LastX)++;
         //inventoryItemArray[0, 0] = item;
         //inventoryUIArray[inventory.LastX, inventory.LastY].gameObject.AddComponent(typeof(SphereCollider));
     }

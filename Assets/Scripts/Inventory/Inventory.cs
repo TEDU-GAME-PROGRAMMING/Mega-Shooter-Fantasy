@@ -8,6 +8,7 @@ public class Inventory
     private Item[,] inventoryArray;
     private int currentSize = 0;
     private int lastX = 0, lastY = 0;
+    
     private int width;
     private int height;
 
@@ -52,7 +53,31 @@ public class Inventory
 
     public bool AddItem(Item item)
     {
-        if(CurrentSize < Width * Height)
+        /*        if(CurrentSize < Width * Height)
+                {
+                    if (LastX >= Width)
+                    {
+                        LastY++;
+                        LastX = 0;
+                    }
+                    if (LastY >= Height)
+                    {
+                        LastY = 0;
+                    }
+                    CurrentSize++;
+
+                    Debug.Log("Added at " + lastX + " " + lastY +"| current " + CurrentSize );
+                    inventoryArray[LastX, LastY] = item;
+                    LastX++;
+                    return true;
+
+                } else
+                {
+                    return false;
+                }
+        */
+
+        if (CurrentSize < Width * Height)
         {
             if (LastX >= Width)
             {
@@ -65,12 +90,13 @@ public class Inventory
             }
             CurrentSize++;
 
-            Debug.Log("Added at " + lastX + " " + lastY +"| current " + CurrentSize );
+            Debug.Log("Added at " + lastX + " " + lastY + "| current " + CurrentSize);
             inventoryArray[LastX, LastY] = item;
             LastX++;
             return true;
 
-        } else
+        }
+        else
         {
             return false;
         }
