@@ -2924,19 +2924,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7621903fafbcd6e49bc58cbdbeaa4e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &6741644050227231322
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6741644050219796890}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.4531342, y: 1.2315998, z: 0.4738806}
-  m_Center: {x: 0.006771124, y: 0.61524147, z: 0.19056003}
 --- !u!1001 &7006285770957208350
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2944,26 +2931,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4374246769419895112, guid: ea3be98355c23924a97a77bd0851758c,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.48452908
-      objectReference: {fileID: 0}
-    - target: {fileID: 4374246769419895112, guid: ea3be98355c23924a97a77bd0851758c,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4374246769419895112, guid: ea3be98355c23924a97a77bd0851758c,
-        type: 3}
-      propertyPath: m_Center.x
-      value: 6.912393e-10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4374246769419895112, guid: ea3be98355c23924a97a77bd0851758c,
-        type: 3}
-      propertyPath: m_Center.z
-      value: 0.10394746
-      objectReference: {fileID: 0}
     - target: {fileID: 4374246769429229220, guid: ea3be98355c23924a97a77bd0851758c,
         type: 3}
       propertyPath: m_RootOrder
@@ -3024,8 +2991,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4374246769419895112, guid: ea3be98355c23924a97a77bd0851758c, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea3be98355c23924a97a77bd0851758c, type: 3}
 --- !u!1001 &7050934325722364221
 PrefabInstance:

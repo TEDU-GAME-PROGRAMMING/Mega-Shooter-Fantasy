@@ -75,7 +75,8 @@ GameObject:
   - component: {fileID: 4374246769429229220}
   - component: {fileID: 4374246769419895114}
   - component: {fileID: 4374246769419895115}
-  - component: {fileID: 4374246769419895112}
+  - component: {fileID: 6741644050227231322}
+  - component: {fileID: 6741644050227231325}
   m_Layer: 14
   m_Name: Boss
   m_TagString: Untagged
@@ -90,7 +91,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4374246769429394052}
-  m_LocalRotation: {x: -0, y: 0.76415414, z: -0, w: 0.6450337}
+  m_LocalRotation: {x: 0, y: 0.7641564, z: 0, w: 0.64503103}
   m_LocalPosition: {x: -90.83678, y: 12.98, z: -8.139591}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
@@ -135,7 +136,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthMax: 300
   healthCureent: 0
---- !u!135 &4374246769419895112
+--- !u!65 &6741644050227231322
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4374246769429394052}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.4531342, y: 0.75324744, z: 0.4738806}
+  m_Center: {x: 0.006771136, y: 0.37606525, z: 0.19056003}
+--- !u!135 &6741644050227231325
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,8 +160,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.58058
-  m_Center: {x: 0, y: 0.58058023, z: 0.2}
+  m_Radius: 0.3234903
+  m_Center: {x: -3.8379722e-10, y: 1.0888369, z: 0.22010036}
 --- !u!1 &4374246769429394054
 GameObject:
   m_ObjectHideFlags: 0
@@ -2556,6 +2570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e55541b604d32f94d8ed3c97482bdf72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage: 20
 --- !u!54 &5714023659571045193
 Rigidbody:
   m_ObjectHideFlags: 0
