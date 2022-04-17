@@ -24,6 +24,11 @@ public class Gun : MonoBehaviour
     public Animator animator;
 
     public AudioSource[] shootingSound;
+
+
+   // public GameObject bulletFirePoint;
+
+
     //public AudioSource ReloadingSound;
     private void Start()
     {
@@ -88,7 +93,12 @@ public class Gun : MonoBehaviour
             }
 
             GameObject impactGO = Instantiate(impactEffect,hit.point, Quaternion.LookRotation(hit.normal));
-            Destroy(impactGO,2f);
+            Destroy(impactGO, 2f);
+            // bulllet Instantiating
+            // GameObject bullet = Instantiate(bulletFirePoint, hit.point, Quaternion.LookRotation(hit.normal));
+
+
+            // Destroy(bullet, 2f);
         } 
         
 
