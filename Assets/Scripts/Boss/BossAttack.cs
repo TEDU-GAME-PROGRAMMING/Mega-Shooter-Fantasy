@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class BossAttack : MonoBehaviour
 {
+
+    [SerializeField] int Damage = 20;
     private void OnCollisionEnter(Collision collision)
     {
-        //Debug.Log("collision");
-        if (collision.gameObject.name.Equals("Cylinder"))
+        //Debug.Log(collision.gameObject.name);
+        if (collision.gameObject.name.Equals("First Person Player"))
         {
             //Debug.Log("Hitted");
-            GameManager.playerStats.healthCurrent -= 20;
+            GameManager.playerStats.healthCurrent -= Damage;
         }
     }
 }

@@ -20,45 +20,53 @@ public class BossPlatform : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-       // Debug.Log("any object entered" + other.gameObject.name);
-        if (other.gameObject.name.Equals("First Person Player"))
+        if(boss != null)
         {
-            //appear ui
-            if (target.healthCureent > 0)
+           // Debug.Log("any object entered" + other.gameObject.name);
+            if (other.gameObject.name.Equals("First Person Player"))
             {
-                bossHealth.gameObject.SetActive(true);
-                bossName.gameObject.SetActive(true);
-            }
+                //appear ui
+                if (target.healthCureent > 0)
+                {
+                    bossHealth.gameObject.SetActive(true);
+                    bossName.gameObject.SetActive(true);
+                }
                 
+            }
         }
 
     }
 
     private void OnTriggerStay(Collider other)
     {
-        bossHealth.fillAmount = target.healthCureent / target.healthMax;
-        bossName.text = boss.name;
-
-
-
-        if (target.healthCureent <= 0)
+        if (boss != null)
         {
-            //disappear ui
-            bossHealth.gameObject.SetActive(false);
-            bossName.gameObject.SetActive(false);
+            bossHealth.fillAmount = target.healthCureent / target.healthMax;
+            bossName.text = boss.name;
+        
+
+
+            if (target.healthCureent <= 0)
+            {
+                //disappear ui
+                bossHealth.gameObject.SetActive(false);
+                bossName.gameObject.SetActive(false);
             
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        
-        
-        if (other.gameObject.name.Equals("First Person Player"))
+
+        if (boss != null)
         {
-            //disappear ui
-            bossHealth.gameObject.SetActive(false);
-            bossName.gameObject.SetActive(false);
+            if (other.gameObject.name.Equals("First Person Player"))
+            {
+                //disappear ui
+                bossHealth.gameObject.SetActive(false);
+                bossName.gameObject.SetActive(false);
+            }
         }
     }
 }

@@ -83,9 +83,22 @@ public class Gun : MonoBehaviour
 
             //Debug.Log(hit.transform.name);
             Target target = hit.transform.GetComponent<Target>();
+
+           // Debug.Log(hit.collider.GetType().ToString());
+            
             if (target != null)
             {
-                target.TakeDamage(damage);
+                //Headshot
+                if (hit.collider.GetType().ToString().Equals("UnityEngine.SphereCollider"))
+                {
+                    //Debug.Log("HeadShoot");
+                    target.TakeDamage(damage * 2);
+                }
+                else
+                {
+                    target.TakeDamage(damage);
+                }
+                
             }
             if (hit.rigidbody != null) {
                 hit.rigidbody.AddForce(-hit.normal* impactForce);
