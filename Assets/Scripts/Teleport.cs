@@ -7,9 +7,14 @@ public class Teleport : MonoBehaviour
 
     [SerializeField] Vector3 destination;
 
-    private void OnTriggerEnter()
+
+    private void OnTriggerEnter(Collider col)
     {
-        GameManager.player.transform.position = destination;
+        if (col.gameObject.name.Equals("First Person Player"))
+        {
+            GameManager.player.transform.position = destination;
+        }
+       
     }
 
 
