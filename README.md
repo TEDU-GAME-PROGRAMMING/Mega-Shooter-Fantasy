@@ -60,3 +60,5 @@ The main player was an astronaut that was sent into an exploration mission. In h
 - [x] Sprint/Stamina mechanic
 - [x] Fall damage mechanic
 - [x] Elevator mechanic
+- [x] Headshot mechanic
+- [x] Flashligt feature
