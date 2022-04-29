@@ -76,6 +76,8 @@ public class InventoryUIManagement : MonoBehaviour, IPointerDownHandler
                                                            0
                                                             );
                 instantiatedItemSlot.transform.parent = inventoryBackground.transform;
+                instantiatedItemSlot.transform.Find("ItemName").GetComponent<TMP_Text>().raycastTarget = false;
+
                 inventoryUIArray[x, y] = instantiatedItemSlot;
                 //inventory.InventoryArray[x, y] = new Item();
 
@@ -164,8 +166,12 @@ public class InventoryUIManagement : MonoBehaviour, IPointerDownHandler
 
                         selectedObject = selectedNew;
 
-
-
+                        //Update the inventory item slot lastX, lastY for the switched item
+                        //and switch the inventory 
+/*                        int x1, y1, x2, y2;
+                        result.gameObject.name;
+                        inventory.SwitchSlots(x1, y1, x2, y2);
+*/
                     }
                     else
                     {
@@ -202,10 +208,10 @@ public class InventoryUIManagement : MonoBehaviour, IPointerDownHandler
 
             }
 
-            foreach (RaycastResult result in results)
+/*            foreach (RaycastResult result in results)
             {
                 Debug.Log("Hit " + result.gameObject.name);
-            }
+            }*/
 
         }
 

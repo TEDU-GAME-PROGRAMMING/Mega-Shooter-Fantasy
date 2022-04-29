@@ -144,4 +144,25 @@ public class Inventory
 
     }
 
+    public void SwitchSlots(int x1, int y1, int x2, int y2)
+    {
+
+    }
+
+    public Item FindItem(Item item)
+    {
+
+        for(int y = 0; y < height; y++)
+        {
+            for(int x = 0; x < width; x++)
+            {
+                if(inventoryArray[x,y] == item)
+                {
+                    return inventoryArray[x,y];
+                }
+            }
+        }
+        return null;
+    }
+
 }

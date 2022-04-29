@@ -25,8 +25,10 @@ public class Gun : MonoBehaviour
 
     public AudioSource[] shootingSound;
 
+    public int CurrentAmmo { get => currentAmmo; set => currentAmmo = value; }
 
-   // public GameObject bulletFirePoint;
+
+    // public GameObject bulletFirePoint;
 
 
     //public AudioSource ReloadingSound;
@@ -34,7 +36,7 @@ public class Gun : MonoBehaviour
     {
         shootingSound = GetComponents<AudioSource>();
         //ReloadingSound = GetComponent<AudioSource>(); 
-        currentAmmo = maxAmmo;
+        CurrentAmmo = maxAmmo;
         
     }
     // Update is called once per frame
@@ -44,7 +46,7 @@ public class Gun : MonoBehaviour
         {
             return;
         }
-        if (currentAmmo <= 0 || (Input.GetKeyDown(KeyCode.R) && currentAmmo != maxAmmo))
+        if (CurrentAmmo <= 0 || (Input.GetKeyDown(KeyCode.R) && CurrentAmmo != maxAmmo))
         {
             //ReloadingSound.Play();
             StartCoroutine(Reload());
@@ -68,7 +70,7 @@ public class Gun : MonoBehaviour
         
         animator.SetBool("Reloading", false);
         yield return new WaitForSeconds(.25f);
-        currentAmmo = maxAmmo;
+        CurrentAmmo = maxAmmo;
         isReloading = false;
     }
     public void Shoot()
@@ -76,7 +78,7 @@ public class Gun : MonoBehaviour
         shootingSound[0].PlayOneShot(shootingSound[0].clip);
         muzzleFlash.Play();
 
-        currentAmmo--;
+        CurrentAmmo--;
 
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range, layerMask)) {

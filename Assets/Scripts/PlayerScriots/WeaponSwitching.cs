@@ -5,7 +5,7 @@ using UnityEngine;
 public class WeaponSwitching : MonoBehaviour
 {
     public int selectedWeapon = 0;
-
+    public GameObject currentlySelectedGameObject;
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +62,7 @@ public class WeaponSwitching : MonoBehaviour
         {
             if (i == selectedWeapon)
             {
+                currentlySelectedGameObject = weapon.gameObject;
                 weapon.gameObject.SetActive(true);
             }
             else
