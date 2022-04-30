@@ -9,16 +9,24 @@ public class gunMovement : MonoBehaviour {
     public GameObject t;
     public Vector3 originalPosition;
     public Vector3 newPosition;
+    public WeaponSwitching weaponSwitching;
     void Start () {
         originalPosition = t.transform.localPosition;
     }
 
     // Update is called once per frame
-    void FixedUpdate () {
+    void Update () {
 
         moveX = Input.GetAxis("Mouse X") * Time.deltaTime * moveAmount;
                
         moveY = Input.GetAxis("Mouse Y") * Time.deltaTime * moveAmount;
+
+        if(moveX != 0 || moveY != 0)
+        {
+            t = weaponSwitching.currentlySelectedGameObject;
+
+        }
+
 
         /*        if(Vector3.Distance(originalPosition, newPosition) < 0.051f)
                 {
@@ -37,7 +45,9 @@ public class gunMovement : MonoBehaviour {
                 {
                     t.transform.localPosition = originalPosition;
                 }*/
-        Vector3 f = new Vector3(moveX, moveY, 0);
-        transform.localPosition = Vector3.Lerp(t.transform.localPosition, f + originalPosition, moveSpeed * Time.deltaTime);
+        newPosition = new Vector3(t.transform.localPosition.x + moveX, t.transform.localPosition.y + moveY, t.transform.localPosition.z);
+
+        t.transform.localPosition = Vector3.Lerp(newPosition, originalPosition, moveSpeed * Time.deltaTime);
+
     }
 }
