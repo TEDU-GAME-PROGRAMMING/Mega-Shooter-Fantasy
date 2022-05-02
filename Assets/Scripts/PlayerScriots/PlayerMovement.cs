@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+    public static PlayerMovement instance;
     public CharacterController controller;
    // public GameObject object1 ; 
 
@@ -35,7 +35,10 @@ public class PlayerMovement : MonoBehaviour
     public float healthCurrent;
 
     //TODO solve bugs: Near the muontain velocity Y decreases, => increase the number of ground check objects
-    
+    private void Awake()
+    {
+        instance = this;
+    }
     private void Start()
     {
         healthCurrent = healthMax;

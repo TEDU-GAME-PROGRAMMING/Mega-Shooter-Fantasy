@@ -10,6 +10,16 @@ public class EnemyBehaviour : MonoBehaviour
     private float gravity = 9.81f;
     public float chaseRange = 5.0f, speed = 4.0f;
     bool isGrounded;
+    //Attacking----
+    public float shootRange = 15;
+    private float fireCounter;
+    [SerializeField]
+    private float fireRate = 0.75f;
+    [SerializeField]
+    private Transform firePoint;
+    [SerializeField]
+    private GameObject bullet;
+    //-------
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +41,15 @@ public class EnemyBehaviour : MonoBehaviour
             this.GetComponent<Animator>().Play("RunForwardBattle");
             dir = GameManager.player.transform.position - transform.position;
             this.transform.LookAt(GameManager.player.transform);
-
+            if (Vector3.Distance(transform.position, PlayerMovement.instance.transform.position) < shootRange)
+            {
+                fireCounter -= Time.deltaTime;
+                if (fireCounter <= 0)
+                {
+                    fireCounter = fireRate;
+                    Instantiate(bullet, firePoint.position, firePoint.rotation);
+                }
+            }
             //Instantiate(bullet);
         }
         else

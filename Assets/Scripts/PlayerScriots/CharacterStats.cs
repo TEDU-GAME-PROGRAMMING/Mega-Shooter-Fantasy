@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
-
+    public static CharacterStats instance;
     public GameObject buttons;
     public int maxHealth = 100;
     //public int currentHealth { get; private set; }
@@ -20,7 +20,7 @@ public class CharacterStats : MonoBehaviour
 
     private void Awake()
     {
-       
+        instance = this;
         //currentHealth = maxHealth;
        GameManager.playerStats.healthMax += maxHealth * 2;
     }
