@@ -10,6 +10,8 @@ public class Gun : MonoBehaviour
     public float impactForce = 30f;
 
     public int maxAmmo = 10;
+    public int maxCurrentAmmo = 90;
+
     private int currentAmmo ;
     public float reloadTime = 1f;
     private bool isReloading = false;
@@ -42,6 +44,7 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (isReloading)
         {
             return;
@@ -60,18 +63,64 @@ public class Gun : MonoBehaviour
     }
     IEnumerator Reload()
     {
+        if (maxCurrentAmmo != 0)
+        {
+            isReloading = true;
+            animator.SetBool("Reloading", true);
+            shootingSound[1].PlayOneShot(shootingSound[1].clip);
+            yield return new WaitForSeconds(reloadTime - .25f);
+
+            animator.SetBool("Reloading", false);
+            yield return new WaitForSeconds(.25f);
+            isReloading = false;
+
+        }
         //shootingSound.Play(1);
+        if (maxCurrentAmmo > currentAmmo)
+        {
+            if(maxCurrentAmmo >= maxAmmo)
+            {
+                maxCurrentAmmo -= maxAmmo - currentAmmo;
+                currentAmmo = maxAmmo;
+            }
+            else
+            {
+                currentAmmo = maxCurrentAmmo;
+                maxCurrentAmmo = 0;
+            }
+        }
+        else
+        {
+            if(maxCurrentAmmo != 0)
+            {
+                if (maxCurrentAmmo <= currentAmmo)
+                {
+                    int needed = maxAmmo - currentAmmo;
+                    if (needed < maxCurrentAmmo)
+                    {
+                        currentAmmo += needed;
+                        maxCurrentAmmo -= needed;
+                    }
+                    else
+                    {
+                        currentAmmo += maxCurrentAmmo;
+                        maxCurrentAmmo = 0;
+                    }
+                    /*                currentAmmo += maxCurrentAmmo;
+                                    maxCurrentAmmo = 0;
+                    */
+
+                }
+            } 
+            else
+            {
+                //TODO Uyari versin. 
+            }
+            
+        }
         
-        isReloading = true;
-        Debug.Log("Reload");
-        animator.SetBool("Reloading", true);
-        shootingSound[1].PlayOneShot(shootingSound[1].clip);
-        yield return new WaitForSeconds(reloadTime - .25f);
-        
-        animator.SetBool("Reloading", false);
-        yield return new WaitForSeconds(.25f);
-        CurrentAmmo = maxAmmo;
-        isReloading = false;
+
+
     }
     public void Shoot()
     {

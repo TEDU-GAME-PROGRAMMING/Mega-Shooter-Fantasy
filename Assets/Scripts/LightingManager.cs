@@ -8,7 +8,7 @@ public class LightingManager : MonoBehaviour
     //references
     [SerializeField] private Light DirectionalLight;
     [SerializeField] private LightingPreset Preset;
-    
+    public Material skyboxMaterial;
 
     //variable
 
@@ -43,6 +43,8 @@ public class LightingManager : MonoBehaviour
         {
             UpdateLighting(TimeOfDay / D_NCycleDuration);
         }
+        skyboxMaterial.SetFloat("_BlendVal", (3* TimeOfDay) / (2* D_NCycleDuration));
+
     }
 
 

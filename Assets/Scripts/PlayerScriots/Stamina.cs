@@ -12,21 +12,27 @@ public class Stamina : MonoBehaviour
     public float staminaCurrentDuration = 5;
     public Image staminaImage;
     public float OriginalSpeed ;
-
-
+    public float tiredTime = 2.5f;
+    private float executedLastTime = 0f;
     void Start()
     {
         player = GameManager.playerStats.GetComponent<PlayerMovement>();
         OriginalSpeed = GameManager.playerStats.speed;
         //Debug.Log(OriginalSpeed);
+
+        staminaPower += OriginalSpeed;
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdateUI();
 
+        UpdateUI();
+        Debug.Log("Player speed" + player.speed + " " + staminaCurrentDuration);
         //stamina
+        
         if (Input.GetKey(KeyCode.LeftShift) && staminaCurrentDuration > 0)
         {
             staminaCurrentDuration -= Time.deltaTime;
@@ -42,6 +48,8 @@ public class Stamina : MonoBehaviour
             {
                 staminaCurrentDuration += 1.5f * Time.deltaTime;
             }
+
+
         }
 
     }

@@ -20,6 +20,6 @@ public class WeaponUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        remainingBulletText.text = weaponSwitching.currentlySelectedGameObject.GetComponent<Gun>().CurrentAmmo.ToString() + " / " + weaponSwitching.currentlySelectedGameObject.GetComponent<Gun>().maxAmmo.ToString();
+        remainingBulletText.text = weaponSwitching.currentlySelectedGameObject.GetComponent<Gun>().CurrentAmmo.ToString() + " / " + weaponSwitching.currentlySelectedGameObject.GetComponent<Gun>().maxCurrentAmmo.ToString();
     }
 }
