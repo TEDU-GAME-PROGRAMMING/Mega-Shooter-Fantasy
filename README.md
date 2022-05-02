@@ -21,18 +21,18 @@ The main player was an astronaut that was sent into an exploration mission. In h
 # Project Tasks
 
 - [ ] Random event system
-- [ ] AI behavior(NPC)
+- [+] AI behavior(NPC)
 - [x] Minimap
 - [x] Menu layout (canvas)
 - [ ] Skill tree, skills
-- [ ] Inventory system and User Interface 
+- [+] Inventory system and User Interface 
 - [ ] NPC voices, animations
-- [ ] World design
+- [+] World design
 - [ ] Weapons, armors: magic, physical damage and resistance
 - [ ] Melodies
 - [ ] Character class
-- [ ] Level up system
-- [ ] Character stats
+- [x] Level up system
+- [+] Character stats
 - [ ] Story changing actions
 - [ ] Stealth mechanic
 - [ ] Shop, coin mechanic
