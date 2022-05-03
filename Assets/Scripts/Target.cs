@@ -38,6 +38,7 @@ public class Target : MonoBehaviour
         {
             GameManager.player.GetComponent<Player>().totalExperience += onDeathExperienceGiven;
             GameManager.player.GetComponent<Player>().currentExp += onDeathExperienceGiven;
+            GameManager.player.GetComponent<Player>().CheckExperienceBar();
             GameManager.player.GetComponent<Player>().experienceDisplay.GetComponent<Slider>().value = GameManager.player.GetComponent<Player>().currentExp / GameManager.player.GetComponent<Player>().expToNextLevel;
 
         }
