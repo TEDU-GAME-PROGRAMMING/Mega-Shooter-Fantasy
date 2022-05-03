@@ -7,6 +7,7 @@ public class Target : MonoBehaviour
     public float healthMax = 50f;
     public float healthCureent;
     public float onDeathExperienceGiven = 100f;
+    int counter = 0;
 
     private void Start()
     {
@@ -19,8 +20,11 @@ public class Target : MonoBehaviour
 
         if (healthCureent <= 0f )
         {
-
+            counter++;
+            
             Die();
+
+           
         }
 
     }
@@ -30,15 +34,20 @@ public class Target : MonoBehaviour
     {
 
         this.GetComponent<Animator>().Play("Die");
-        GameManager.player.GetComponent<Player>().totalExperience += onDeathExperienceGiven;
-        GameManager.player.GetComponent<Player>().currentExp += onDeathExperienceGiven;
-        GameManager.player.GetComponent<Player>().experienceDisplay.GetComponent<Slider>().value = GameManager.player.GetComponent<Player>().currentExp / GameManager.player.GetComponent<Player>().expToNextLevel;
+        if (counter == 1)
+        {
+            GameManager.player.GetComponent<Player>().totalExperience += onDeathExperienceGiven;
+            GameManager.player.GetComponent<Player>().currentExp += onDeathExperienceGiven;
+            GameManager.player.GetComponent<Player>().experienceDisplay.GetComponent<Slider>().value = GameManager.player.GetComponent<Player>().currentExp / GameManager.player.GetComponent<Player>().expToNextLevel;
 
+        }
+        
+       
         Destroy(this.GetComponent<EnemyBehaviour>());
+        Destroy(gameObject,2f);
 
 
 
-        Destroy(gameObject);
 
 
 
