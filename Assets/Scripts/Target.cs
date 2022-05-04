@@ -9,6 +9,10 @@ public class Target : MonoBehaviour
     public float onDeathExperienceGiven = 100f;
     int counter = 0;
 
+    public int targetLevel = 0;
+    public string targetName = "DefaultNPCName";
+
+
     private void Start()
     {
         healthCureent = healthMax;

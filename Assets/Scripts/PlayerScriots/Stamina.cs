@@ -30,7 +30,7 @@ public class Stamina : MonoBehaviour
     {
 
         UpdateUI();
-        Debug.Log("Player speed" + player.speed + " " + staminaCurrentDuration);
+        //Debug.Log("Player speed" + player.speed + " " + staminaCurrentDuration);
         //stamina
         
         if (Input.GetKey(KeyCode.LeftShift) && staminaCurrentDuration > 0)

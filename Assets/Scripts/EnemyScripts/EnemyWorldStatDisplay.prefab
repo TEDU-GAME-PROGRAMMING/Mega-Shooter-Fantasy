@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 369bf83a17f10b0489e8cc169d2ad686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
-  levelDisplay: {fileID: 0}
-  enemyName: {fileID: 0}
+  healthBar: {fileID: 8706889065474583993}
+  levelDisplay: {fileID: 8706889064892439315}
+  enemyName: {fileID: 8706889064951626097}
 --- !u!1 &8706889064272935492
 GameObject:
   m_ObjectHideFlags: 0

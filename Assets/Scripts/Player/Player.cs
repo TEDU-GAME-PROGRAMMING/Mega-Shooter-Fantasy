@@ -23,7 +23,20 @@ public class Player : MonoBehaviour
 
     public Inventory Inventory { get => inventory; set => inventory = value; }
 
-    public float totalExperience = 0f; 
+    public float totalExperience = 0f;
+
+
+    public LayerMask layerMask;
+
+    RaycastHit hit;
+
+    public GameObject healthBar, levelDisplay, enemyName;
+    public GameObject enemy;
+    public GameObject enemyWordStatsDisplay;
+
+    private bool enemyUIVisible = false;
+    private bool previousDetected;
+
     private void Awake()
     {
         inventory = new Inventory(inventoryXSize, inventoryYSize);
@@ -41,6 +54,52 @@ public class Player : MonoBehaviour
     void Update()
     {
         //CheckExperienceBar();
+        UpdateTargetedEnemyUI();
+    }
+
+    private void UpdateTargetedEnemyUI()
+    {
+        //TODO: Add range to raycast. 100f -> range
+/*        bool detected = Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 100f, layerMask);
+        if (detected != previousDetected)
+        {
+            enemyUIVisible = !enemyUIVisible;
+        }
+        previousDetected = detected;        
+        //Debug.Log("Detected "  + detected +" Collider " +  hit.collider.name);
+        if (enemyUIVisible)
+        {
+            enemyWordStatsDisplay.SetActive(enemyUIVisible);
+
+            Target t = hit.collider.GetComponent<Target>();
+            healthBar.GetComponent<Slider>().value = t.healthCureent / t.healthMax;
+            levelDisplay.GetComponent<TMP_Text>().text = t.targetLevel.ToString();
+            enemyName.GetComponent<TMP_Text>().text = t.targetName.ToString();
+
+
+
+        } 
+*/    
+
+        //TODO: Needs optimization.
+        if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 100f, layerMask))
+        {
+            enemyUIVisible = true;
+            enemyWordStatsDisplay.SetActive(enemyUIVisible);
+
+            Target t = hit.collider.GetComponent<Target>();
+            healthBar.GetComponent<Slider>().value = t.healthCureent / t.healthMax;
+            levelDisplay.GetComponent<TMP_Text>().text = t.targetLevel.ToString();
+            enemyName.GetComponent<TMP_Text>().text = t.targetName.ToString();
+
+
+        } else
+        {
+            enemyUIVisible = false;
+            enemyWordStatsDisplay.SetActive(false);
+
+        }
+
     }
 
     public void CheckExperienceBar()
