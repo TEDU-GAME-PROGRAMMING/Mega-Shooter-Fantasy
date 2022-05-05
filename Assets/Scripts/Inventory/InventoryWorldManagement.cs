@@ -20,12 +20,30 @@ public class InventoryWorldManagement : MonoBehaviour
 
             if (hit.collider != null && hit.collider.gameObject.GetComponent<Item>() != null )
             {
-                Item item = hit.collider.GetComponent<Item>();
-                bool added = GameManager.player.GetComponent<Player>().Inventory.AddItem(item);
-                if (added)
+                Item itemComp = hit.collider.gameObject.GetComponent<Item>();
+                switch (hit.collider.gameObject.GetComponent<Item>().type)
                 {
-                    inventoryCanvas.GetComponent<InventoryUIManagement>().AddItem(hit.collider.gameObject);
-                    Destroy(hit.collider.gameObject);
+
+                    case ItemType.Ammo:
+
+                        GameManager.player.GetComponent<CharacterStats>().
+                            weaponHolder.GetComponent<WeaponSwitching>().
+                            currentlySelectedGameObject.GetComponent<Gun>().maxCurrentAmmo += itemComp.ammoAmount;
+                        Destroy(hit.transform.gameObject);
+                        break;
+
+                    case ItemType.Weapon:
+                        AddToInventory(hit);
+                        
+                        
+                        break;
+
+                    default:
+
+
+                        break;
+
+
 
                 }
 
@@ -34,5 +52,18 @@ public class InventoryWorldManagement : MonoBehaviour
 
 
         }
+    }
+
+    public void AddToInventory(RaycastHit hit)
+    {
+        Item item = hit.collider.GetComponent<Item>();
+        bool added = GameManager.player.GetComponent<Player>().Inventory.AddItem(item);
+        if (added)
+        {
+            inventoryCanvas.GetComponent<InventoryUIManagement>().AddItem(hit.collider.gameObject);
+            Destroy(hit.collider.gameObject);
+
+        }
+
     }
 }

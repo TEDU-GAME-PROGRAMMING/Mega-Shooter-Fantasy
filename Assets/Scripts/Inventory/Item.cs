@@ -11,7 +11,8 @@ public class Item : MonoBehaviour
     //private AdditionalPowerUps powerUp;
 
     public Sprite itemImage;
-
+    public int ammoAmount = 0;
+    public ItemType type;
 
     public Item()
     {
@@ -39,5 +40,5 @@ public enum ItemType
     Weapon,
     Material, 
     Consumable,
-
+    Ammo
 }
