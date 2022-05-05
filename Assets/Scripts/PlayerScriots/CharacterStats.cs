@@ -7,6 +7,9 @@ public class CharacterStats : MonoBehaviour
     public GameObject buttons;
     public GameObject weaponHolder;
     public GameObject SpeedText;
+    public GameObject DamageText;
+    public GameObject ArmorText;
+    public GameObject Endurance;
     public GameObject warningMsg;
     public int maxHealth = 100;
     //public int currentHealth { get; private set; }
@@ -26,6 +29,10 @@ public class CharacterStats : MonoBehaviour
         instance = this;
         //currentHealth = maxHealth;
        GameManager.playerStats.healthMax += maxHealth * 2;
+        
+       SpeedText.GetComponent<TMP_Text>().text = GameManager.player.GetComponent<PlayerMovement>().speed.ToString();
+       ArmorText.GetComponent<TMP_Text>().text = armor.getValue().ToString();
+       Endurance.GetComponent<TMP_Text>().text = GameManager.player.GetComponent<PlayerMovement>().healthMax.ToString();
     }
     private void Start()
     {
@@ -35,6 +42,7 @@ public class CharacterStats : MonoBehaviour
     }
     private void Update()
     {
+        //DamageText.GetComponent<TMP_Text>().text = weaponHolder.GetComponent<WeaponSwitching>().currentlySelectedGameObject.GetComponent<Gun>().damage.ToString();
         //SpeedIncrease();
         if (Input.GetKeyDown(KeyCode.T))
         {
@@ -42,18 +50,33 @@ public class CharacterStats : MonoBehaviour
             //max health improve
            // Start();
         }
+        if(GameManager.player.GetComponent<Player>().remaingSkillPoints > 0)
+        {
+            warningMsg.SetActive(false);
+        }
+        else
+        {
+            warningMsg.SetActive(true);
+        }
+    }
+    private void LateUpdate()
+    {
+        DamageText.GetComponent<TMP_Text>().text = weaponHolder.GetComponent<WeaponSwitching>().currentlySelectedGameObject.GetComponent<Gun>().damage.ToString();
+    
     }
     public void TakeDamage(int damage)
     {
-        strength.setValue();
-        damage -= armor.getValue();
+        //strength.setValue();
+        damage -= (armor.getValue() + 10);
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
         GameManager.playerStats.healthCurrent -= damage;
     }
     public void SpeedIncrease()
     {
+        
         if (GameManager.player.GetComponent<Player>().remaingSkillPoints > 0) 
-        { 
+        {
+        //warningMsg.SetActive(false);
         Speed.setValue();
         GameManager.playerStats.speed += 1;
         SpeedText.GetComponent<TMP_Text>().text = GameManager.player.GetComponent<PlayerMovement>().speed.ToString();
@@ -62,7 +85,7 @@ public class CharacterStats : MonoBehaviour
         GameManager.player.GetComponent<Player>().remaingSkillPointText.GetComponent<TMP_Text>().text = GameManager.player.GetComponent<Player>().remaingSkillPoints.ToString();
         }else
         {
-            warningMsg.GetComponent<TMP_Text>().IsActive() ; // it does not work.
+            //warningMsg.SetActive(true) ; 
         }
 
 
@@ -71,42 +94,35 @@ public class CharacterStats : MonoBehaviour
     {
         if (GameManager.player.GetComponent<Player>().remaingSkillPoints > 0)
         {
+           // warningMsg.SetActive(false);
             damage.setValue();
             weaponHolder.GetComponent<WeaponSwitching>().currentlySelectedGameObject.GetComponent<Gun>().damage += 1f;
+            DamageText.GetComponent<TMP_Text>().text = weaponHolder.GetComponent<WeaponSwitching>().currentlySelectedGameObject.GetComponent<Gun>().damage.ToString();
             GameManager.player.GetComponent<Player>().remaingSkillPoints--;
             GameManager.player.GetComponent<Player>().remaingSkillPointText.GetComponent<TMP_Text>().text = GameManager.player.GetComponent<Player>().remaingSkillPoints.ToString();
         }
-        else
-        {
-            warningMsg.GetComponent<TMP_Text>().IsActive() ;
-        }
         
-        //GameManager.playerStats.GetComponent<Stamina>(). = GameManager.playerStats.damage;
     }
     public void IncreaseArmor()
     {
         if (GameManager.player.GetComponent<Player>().remaingSkillPoints > 0)
         {
             armor.setValue();
-            GameManager.player.GetComponent<PlayerMovement>().healthMax += 50;
-            GameManager.player.GetComponent<PlayerMovement>().healthCurrent += 50;
             GameManager.player.GetComponent<Player>().remaingSkillPoints--;
-        }
-        else
-        {
-
+            GameManager.player.GetComponent<Player>().remaingSkillPointText.GetComponent<TMP_Text>().text = GameManager.player.GetComponent<Player>().remaingSkillPoints.ToString();
+            ArmorText.GetComponent<TMP_Text>().text = armor.getValue().ToString();
         }
     }
     public void IncreaseIntelligence()
     {
         if (GameManager.player.GetComponent<Player>().remaingSkillPoints > 0)
         {
+            intelligence.getValue();
+
+
 
         }
-        else
-        {
-
-        }
+       
 
     }
     public void IncreaseDexterity()
@@ -115,21 +131,20 @@ public class CharacterStats : MonoBehaviour
         {
 
         }
-        else
-        {
-
-        }
+        
     }
     public void IncreaseEndurance()
     {
         if (GameManager.player.GetComponent<Player>().remaingSkillPoints > 0)
         {
-
+            endurance.getValue();
+            GameManager.player.GetComponent<PlayerMovement>().healthMax += 50;
+            GameManager.player.GetComponent<PlayerMovement>().healthCurrent += 50;
+            GameManager.player.GetComponent<Player>().remaingSkillPoints--;
+            GameManager.player.GetComponent<Player>().remaingSkillPointText.GetComponent<TMP_Text>().text = GameManager.player.GetComponent<Player>().remaingSkillPoints.ToString();
+            Endurance.GetComponent<TMP_Text>().text = GameManager.player.GetComponent<PlayerMovement>().healthMax.ToString();
         }
-        else
-        {
-
-        }
+       
     }
     public void IncreaseStrength()
     {
@@ -137,9 +152,6 @@ public class CharacterStats : MonoBehaviour
         {
 
         }
-        else
-        {
-
-        }
+        
     }
 }
