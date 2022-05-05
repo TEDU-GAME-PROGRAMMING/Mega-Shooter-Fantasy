@@ -18,8 +18,8 @@ public class CharacterStats : MonoBehaviour
     public Stat endurance;// partially DONE
     public Stat dexterity;// partially DONE
     public Stat intelligence;// partially DONE
-    public Stat damage; // text will be added DONE
-    public Stat armor; // partially DONE
+    public Stat damage; //  DONE
+    public Stat armor; //  DONE
 
     //float speed;
     public bool display = false;
@@ -67,7 +67,7 @@ public class CharacterStats : MonoBehaviour
     public void TakeDamage(int damage)
     {
         //strength.setValue();
-        damage -= (armor.getValue() + 10);
+        damage -= (armor.getValue() * 10);
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
         GameManager.playerStats.healthCurrent -= damage;
     }
