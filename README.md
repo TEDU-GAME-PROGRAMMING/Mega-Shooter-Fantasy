@@ -32,7 +32,7 @@ The main player was an astronaut that was sent into an exploration mission. In h
 - [ ] Melodies
 - [ ] Character class
 - [x] Level up system
-- [+] Character stats
+- [x] Character stats
 - [ ] Story changing actions
 - [ ] Stealth mechanic
 - [ ] Shop, coin mechanic
