@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Die : MonoBehaviour
 {
   
@@ -9,8 +9,11 @@ public class Die : MonoBehaviour
     {
          if (GameManager.playerStats.healthCurrent <= 0)
          {
-            Dying();
-         }
+            // Dying();
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("OnDeadScene");
+            
+        }
     }
     public void Dying()
     {

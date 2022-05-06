@@ -22,11 +22,17 @@ public class EnemyBullet : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.tag == "Player")
         {
             //Debug.Log("damage verdi");
             CharacterStats.instance.TakeDamage(damageOfEnemy);
         }
+        else
+        {
+            
+        }
+       // Debug.Log(other.gameObject.name);
         Destroy(gameObject,1f);
     }
     private void OnBecameInvisible()
