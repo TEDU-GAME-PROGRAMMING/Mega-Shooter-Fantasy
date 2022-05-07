@@ -36,8 +36,11 @@ public class Target : MonoBehaviour
 
     public void Die()
     {
-
-        this.GetComponent<Animator>().Play("Die");
+        if (this.GetComponent<Animator>() !=null)
+        {
+            this.GetComponent<Animator>().Play("Die");
+        }
+        
         if (counter == 1)
         {
             GameManager.player.GetComponent<Player>().totalExperience += onDeathExperienceGiven;
@@ -46,10 +49,19 @@ public class Target : MonoBehaviour
             GameManager.player.GetComponent<Player>().experienceDisplay.GetComponent<Slider>().value = GameManager.player.GetComponent<Player>().currentExp / GameManager.player.GetComponent<Player>().expToNextLevel;
 
         }
+       // Destroy(gameObject, 1.5f);
+        if (this.GetComponent<EnemyBehaviour>() != null)
+        {
+            Destroy(this.GetComponent<EnemyBehaviour>());
+            Destroy(gameObject, 2f);
+        }
+        if (this.GetComponent<EnemyNavMesh>() != null)
+        {
+            Destroy(this.GetComponent<EnemyNavMesh>());
+            Destroy(gameObject);
+        }
         
-       
-        Destroy(this.GetComponent<EnemyBehaviour>());
-        Destroy(gameObject,2f);
+        
 
 
 
