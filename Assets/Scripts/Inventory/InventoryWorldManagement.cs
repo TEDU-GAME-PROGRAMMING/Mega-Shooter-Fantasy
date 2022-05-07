@@ -20,6 +20,7 @@ public class InventoryWorldManagement : MonoBehaviour
 
             if (hit.collider != null && hit.collider.gameObject.GetComponent<Item>() != null )
             {
+
                 Item itemComp = hit.collider.gameObject.GetComponent<Item>();
                 switch (hit.collider.gameObject.GetComponent<Item>().type)
                 {
@@ -34,6 +35,7 @@ public class InventoryWorldManagement : MonoBehaviour
 
                     case ItemType.Weapon:
                         AddToInventory(hit);
+                       
                         
                         
                         break;
@@ -57,13 +59,17 @@ public class InventoryWorldManagement : MonoBehaviour
     public void AddToInventory(RaycastHit hit)
     {
         Item item = hit.collider.GetComponent<Item>();
+       
         bool added = GameManager.player.GetComponent<Player>().Inventory.AddItem(item);
+      
         if (added)
         {
+             
             inventoryCanvas.GetComponent<InventoryUIManagement>().AddItem(hit.collider.gameObject);
+           
             Destroy(hit.collider.gameObject);
 
         }
-
+       
     }
 }

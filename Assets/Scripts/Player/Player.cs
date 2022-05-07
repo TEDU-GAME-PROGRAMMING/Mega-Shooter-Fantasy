@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
     public GameObject enemyWordStatsDisplay;
 
     private bool enemyUIVisible = false;
-    private bool previousDetected;
+    
 
     private void Awake()
     {

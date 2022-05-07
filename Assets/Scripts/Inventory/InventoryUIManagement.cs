@@ -105,7 +105,6 @@ public class InventoryUIManagement : MonoBehaviour, IPointerDownHandler
         System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
 
         stopwatch.Start();
-
         if (Input.GetKeyDown(KeyCode.I))
         {
 
@@ -116,6 +115,7 @@ public class InventoryUIManagement : MonoBehaviour, IPointerDownHandler
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
                 Time.timeScale = 0.0f;
+                
             }
             else
             {
@@ -225,10 +225,12 @@ public class InventoryUIManagement : MonoBehaviour, IPointerDownHandler
 
     public void AddItem(GameObject pickedObject)
     {
+        //Debug.Log("before " + inventory.LastX + "  " + inventory.LastY);
         //iki tane add yapinca lastx lasty baska yerde degisiyor bug. simdilik 0 0 
         Item pickedItem = pickedObject.GetComponent<Item>();
 
         Item item = new Item();
+        Debug.Log("before " + inventory.LastX + "  " + inventory.LastY);
         inventory.CopyItem(item, pickedItem);
         Debug.Log("AFTER " + inventory.LastX + "  " + inventory.LastY);
         inventory.LastX--;
