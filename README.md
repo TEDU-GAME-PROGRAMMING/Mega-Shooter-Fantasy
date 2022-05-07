@@ -21,7 +21,7 @@ The main player was an astronaut that was sent into an exploration mission. In h
 # Project Tasks
 
 - [ ] Random event system
-- [+] AI behavior(NPC)
+- [x] AI behavior(NPC)
 - [x] Minimap
 - [x] Menu layout (canvas)
 - [ ] Skill tree, skills
@@ -45,7 +45,7 @@ The main player was an astronaut that was sent into an exploration mission. In h
 - [ ] Projectile mechanic
 - [ ] Waypoint system
 - [ ] Backpack, weight, speed mechanics
-- [ ] Pet system
+- [x] Pet system
 - [ ] Autopilot, auto run
 - [ ] Random NPC stats generation & Boss fight system
 - [ ] Check point, save system
@@ -62,3 +62,4 @@ The main player was an astronaut that was sent into an exploration mission. In h
 - [x] Elevator mechanic
 - [x] Headshot mechanic
 - [x] Flashligt feature
+- [x] Teleport System
