@@ -62,3 +62,4 @@ The main player was an astronaut that was sent into an exploration mission. In h
 - [x] Elevator mechanic
 - [x] Headshot mechanic
 - [x] Flashligt feature
+- [x] Teleport System
