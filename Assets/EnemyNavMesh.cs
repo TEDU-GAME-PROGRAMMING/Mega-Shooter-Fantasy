@@ -15,6 +15,7 @@ public class EnemyNavMesh : MonoBehaviour
     [SerializeField]
     private GameObject bullet;
     public float chaseRange = 500.0f;
+    public Animator anim;
 
     private void Awake()
     {
@@ -32,6 +33,10 @@ public class EnemyNavMesh : MonoBehaviour
         //navMeshAgent.destination = movePositionTransform.position;
         if (IsInRange() && IsInView())
          {
+            if (anim !=null)
+            {
+                anim.SetBool("Walk_Anim", true);
+            }
              navMeshAgent.destination = movePositionTransform.position;
             if (Vector3.Distance(transform.position, movePositionTransform.position) <= shootRange)
             {
@@ -41,6 +46,13 @@ public class EnemyNavMesh : MonoBehaviour
                     fireCounter = fireRate;
                     Instantiate(bullet, firePoint.position, firePoint.rotation);
                 }
+            }
+        }
+        else
+        {
+            if (anim != null)
+            {
+                anim.SetBool("Walk_Anim", false);
             }
         }
     }

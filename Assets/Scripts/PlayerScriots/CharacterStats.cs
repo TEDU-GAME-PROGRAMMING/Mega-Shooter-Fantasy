@@ -28,16 +28,19 @@ public class CharacterStats : MonoBehaviour
     {
         instance = this;
         //currentHealth = maxHealth;
-       GameManager.playerStats.healthMax += maxHealth * 2;
+      /* GameManager.playerStats.healthMax += maxHealth * 2;
         
        SpeedText.GetComponent<TMP_Text>().text = GameManager.player.GetComponent<PlayerMovement>().speed.ToString();
        ArmorText.GetComponent<TMP_Text>().text = armor.getValue().ToString();
-       Endurance.GetComponent<TMP_Text>().text = GameManager.player.GetComponent<PlayerMovement>().healthMax.ToString();
+       Endurance.GetComponent<TMP_Text>().text = GameManager.player.GetComponent<PlayerMovement>().healthMax.ToString();*/
     }
     private void Start()
     {
-        
-       
+        GameManager.playerStats.healthMax += maxHealth * 2;
+        SpeedText.GetComponent<TMP_Text>().text = GameManager.player.GetComponent<PlayerMovement>().speed.ToString();
+        ArmorText.GetComponent<TMP_Text>().text = armor.getValue().ToString();
+        Endurance.GetComponent<TMP_Text>().text = GameManager.player.GetComponent<PlayerMovement>().healthMax.ToString();
+
 
     }
     private void Update()
