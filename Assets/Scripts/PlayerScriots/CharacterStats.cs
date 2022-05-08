@@ -27,16 +27,18 @@ public class CharacterStats : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        GameManager.playerStats.healthMax += maxHealth * 2;
         //currentHealth = maxHealth;
-      /* GameManager.playerStats.healthMax += maxHealth * 2;
-        
-       SpeedText.GetComponent<TMP_Text>().text = GameManager.player.GetComponent<PlayerMovement>().speed.ToString();
-       ArmorText.GetComponent<TMP_Text>().text = armor.getValue().ToString();
-       Endurance.GetComponent<TMP_Text>().text = GameManager.player.GetComponent<PlayerMovement>().healthMax.ToString();*/
+        /* GameManager.playerStats.healthMax += maxHealth * 2;
+
+         SpeedText.GetComponent<TMP_Text>().text = GameManager.player.GetComponent<PlayerMovement>().speed.ToString();
+         ArmorText.GetComponent<TMP_Text>().text = armor.getValue().ToString();
+         Endurance.GetComponent<TMP_Text>().text = GameManager.player.GetComponent<PlayerMovement>().healthMax.ToString();*/
     }
     private void Start()
     {
-        GameManager.playerStats.healthMax += maxHealth * 2;
+        
+        
         SpeedText.GetComponent<TMP_Text>().text = GameManager.player.GetComponent<PlayerMovement>().speed.ToString();
         ArmorText.GetComponent<TMP_Text>().text = armor.getValue().ToString();
         Endurance.GetComponent<TMP_Text>().text = GameManager.player.GetComponent<PlayerMovement>().healthMax.ToString();
@@ -47,12 +49,7 @@ public class CharacterStats : MonoBehaviour
     {
         //DamageText.GetComponent<TMP_Text>().text = weaponHolder.GetComponent<WeaponSwitching>().currentlySelectedGameObject.GetComponent<Gun>().damage.ToString();
         //SpeedIncrease();
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            TakeDamage(30);
-            //max health improve
-           // Start();
-        }
+        
         if(GameManager.player.GetComponent<Player>().remaingSkillPoints > 0)
         {
             warningMsg.SetActive(false);
