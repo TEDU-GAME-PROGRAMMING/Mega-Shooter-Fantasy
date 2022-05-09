@@ -58,7 +58,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
         
        // dir = dir.normalized;
-        Vector3 v = dir * speed * Time.deltaTime;
+        Vector3 v = dir.normalized * speed * Time.deltaTime;
        // v = v.normalized;
         
 

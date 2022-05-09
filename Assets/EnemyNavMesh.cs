@@ -36,8 +36,10 @@ public class EnemyNavMesh : MonoBehaviour
             if (anim !=null)
             {
                 anim.SetBool("Walk_Anim", true);
+                anim.SetBool("Run", true);
             }
              navMeshAgent.destination = movePositionTransform.position;
+             navMeshAgent.speed = 3.5f;
             if (Vector3.Distance(transform.position, movePositionTransform.position) <= shootRange)
             {
                 fireCounter -= Time.deltaTime;
@@ -52,7 +54,10 @@ public class EnemyNavMesh : MonoBehaviour
         {
             if (anim != null)
             {
+                navMeshAgent.speed = 0;
+                anim.SetBool("Run", false);
                 anim.SetBool("Walk_Anim", false);
+                
             }
         }
     }
