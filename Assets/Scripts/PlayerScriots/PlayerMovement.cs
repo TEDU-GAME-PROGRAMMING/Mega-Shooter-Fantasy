@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         healthCurrent = healthMax;
 
     }
-
+    
     // Update is called once per frame
     void Update()
     {

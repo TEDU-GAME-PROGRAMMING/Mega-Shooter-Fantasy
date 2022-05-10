@@ -37,17 +37,26 @@ public class EnemyNavMesh : MonoBehaviour
             {
                 anim.SetBool("Walk_Anim", true);
                 anim.SetBool("Run", true);
+                
+
             }
              navMeshAgent.destination = movePositionTransform.position;
              navMeshAgent.speed = 3.5f;
             if (Vector3.Distance(transform.position, movePositionTransform.position) <= shootRange)
             {
+                //this.GetComponent<Animator>().Play("Attack01");
+               
                 fireCounter -= Time.deltaTime;
                 if (fireCounter <= 0)
                 {
+                    
                     fireCounter = fireRate;
                     Instantiate(bullet, firePoint.position, firePoint.rotation);
                 }
+            }
+            else
+            {
+                //this.GetComponent<Animator>().Play("RunForwardBattle");
             }
         }
         else
@@ -57,7 +66,7 @@ public class EnemyNavMesh : MonoBehaviour
                 navMeshAgent.speed = 0;
                 anim.SetBool("Run", false);
                 anim.SetBool("Walk_Anim", false);
-                
+                //this.GetComponent<Animator>().Play("Idle_Battle");
             }
         }
     }

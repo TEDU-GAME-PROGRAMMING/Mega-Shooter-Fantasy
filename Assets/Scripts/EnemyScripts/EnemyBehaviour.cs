@@ -38,22 +38,31 @@ public class EnemyBehaviour : MonoBehaviour
         Vector3 dir = (GameManager.player.transform.position - this.transform.position);
         if (IsInRange() && IsInView())
         {
-            this.GetComponent<Animator>().Play("RunForwardBattle");
+            
             dir = GameManager.player.transform.position - transform.position;
             this.transform.LookAt(GameManager.player.transform);
             if (Vector3.Distance(transform.position, PlayerMovement.instance.transform.position) < shootRange)
             {
+                this.GetComponent<Animator>().Play("Attack01");
                 fireCounter -= Time.deltaTime;
                 if (fireCounter <= 0)
                 {
+
+                    
                     fireCounter = fireRate;
                     Instantiate(bullet, firePoint.position, firePoint.rotation);
                 }
+            }
+            else
+            {
+                this.GetComponent<Animator>().Play("RunForwardBattle");
             }
             //Instantiate(bullet);
         }
         else
         {
+            this.GetComponent<Animator>().Play("Idle_Battle");
+           
             dir = Vector3.zero;
         }
         
