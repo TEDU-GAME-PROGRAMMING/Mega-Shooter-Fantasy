@@ -17,6 +17,11 @@ public class EnemyNavMesh : MonoBehaviour
     public float chaseRange = 500.0f;
     public Animator anim;
 
+    //---DENEME
+    public ParticleSystem muzzleFlash;
+    //-------
+
+
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -51,6 +56,11 @@ public class EnemyNavMesh : MonoBehaviour
                 {
                     
                     fireCounter = fireRate;
+                    if (muzzleFlash !=null)
+                    {
+                        muzzleFlash.Play();
+                    }
+                    
                     Instantiate(bullet, firePoint.position, firePoint.rotation);
                 }
             }

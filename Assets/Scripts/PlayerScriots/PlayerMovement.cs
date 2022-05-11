@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
 
         controller.Move(move * speed * Time.deltaTime);
-        
+        //this.GetComponent<Animator>().Play("Walk");
 
         //Jumping
         if (Input.GetButtonDown("Jump") && isGrounded)
@@ -122,6 +122,7 @@ public class PlayerMovement : MonoBehaviour
             //if character is on the ground, set velocity Y to 0
             velocity.y = 0;
         }
+       
         else
         {
             //falling

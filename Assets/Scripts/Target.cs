@@ -11,7 +11,7 @@ public class Target : MonoBehaviour
 
     public int targetLevel = 0;
     public string targetName = "DefaultNPCName";
-
+    public ParticleSystem muzzleFlashBloodEffect;
 
     private void Start()
     {
@@ -21,7 +21,11 @@ public class Target : MonoBehaviour
     public void TakeDamage(float amount)
     {
         healthCureent -= amount;
-
+        if (muzzleFlashBloodEffect != null)
+        {
+            muzzleFlashBloodEffect.Play();
+        }
+       
         if (healthCureent <= 0f )
         {
             counter++;
