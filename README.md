@@ -47,7 +47,7 @@ The main player was an astronaut that was sent into an exploration mission. In h
 - [ ] Backpack, weight, speed mechanics
 - [x] Pet system
 - [ ] Autopilot, auto run
-- [ ] Random NPC stats generation & Boss fight system
+- [x] Boss fight system
 - [ ] Check point, save system
 - [ ] Collector
 - [ ] Vehicle system
