@@ -49,6 +49,7 @@ public class EnemyNavMesh : MonoBehaviour
              navMeshAgent.speed = 3.5f;
             if (Vector3.Distance(transform.position, movePositionTransform.position) <= shootRange)
             {
+                //navMeshAgent.speed = 3.5f;
                 //this.GetComponent<Animator>().Play("Attack01");
                
                 fireCounter -= Time.deltaTime;

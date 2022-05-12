@@ -69,6 +69,11 @@ public class Target : MonoBehaviour
             Destroy(this.GetComponent<BossNavMesh>());
             Destroy(gameObject,2f);
         }
+        if (this.GetComponent<EnemyNavMeshMeele>() != null)
+        {
+            Destroy(this.GetComponent<EnemyNavMeshMeele>());
+            Destroy(gameObject, 2f);
+        }
 
 
 
