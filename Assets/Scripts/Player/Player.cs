@@ -82,23 +82,30 @@ public class Player : MonoBehaviour
 */    
 
         //TODO: Needs optimization.
-        if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 100f, layerMask))
+        if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, layerMask))
         {
-            enemyUIVisible = true;
-            enemyWordStatsDisplay.SetActive(enemyUIVisible);
+            
+            
+            //enemy layer
+           if( hit.transform.gameObject.layer == Mathf.Log(layerMask.value, 2))
+            {
+                enemyUIVisible = true;
+                enemyWordStatsDisplay.SetActive(enemyUIVisible); 
+                Target t = hit.collider.GetComponent<Target>();
+                healthBar.GetComponent<Slider>().value = t.healthCureent / t.healthMax;
+                levelDisplay.GetComponent<TMP_Text>().text = t.targetLevel.ToString();
+                enemyName.GetComponent<TMP_Text>().text = t.targetName.ToString();
+            }
 
-            Target t = hit.collider.GetComponent<Target>();
-            healthBar.GetComponent<Slider>().value = t.healthCureent / t.healthMax;
-            levelDisplay.GetComponent<TMP_Text>().text = t.targetLevel.ToString();
-            enemyName.GetComponent<TMP_Text>().text = t.targetName.ToString();
-
-
-        } else
+            else
         {
             enemyUIVisible = false;
             enemyWordStatsDisplay.SetActive(false);
 
         }
+
+
+        } 
 
     }
 

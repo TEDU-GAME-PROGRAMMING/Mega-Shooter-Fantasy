@@ -40,8 +40,20 @@ public class EnemyNavMesh : MonoBehaviour
          {
             if (anim !=null)
             {
-                anim.SetBool("Walk_Anim", true);
-                anim.SetBool("Run", true);
+                foreach(AnimatorControllerParameter state in anim.parameters)
+                {
+                    if(state.name == "Walk_Anim")
+                    {
+                        anim.SetBool("Walk_Anim", true);
+                    }
+                    else if (state.name == "Run")
+                    {
+                        anim.SetBool("Run", true);
+                    }
+                }
+
+                
+                
                 
 
             }
@@ -75,8 +87,19 @@ public class EnemyNavMesh : MonoBehaviour
             if (anim != null)
             {
                 navMeshAgent.speed = 0;
-                anim.SetBool("Run", false);
-                anim.SetBool("Walk_Anim", false);
+
+                foreach (AnimatorControllerParameter state in anim.parameters)
+                {
+                    if (state.name == "Walk_Anim")
+                    {
+                        anim.SetBool("Walk_Anim", false);
+                    }
+                    else if (state.name == "Run")
+                    {
+                        anim.SetBool("Run", false);
+                    }
+                }
+
                 //this.GetComponent<Animator>().Play("Idle_Battle");
             }
         }
