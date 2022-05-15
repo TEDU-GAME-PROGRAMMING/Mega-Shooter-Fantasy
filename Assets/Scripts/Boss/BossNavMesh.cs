@@ -6,9 +6,9 @@ public class BossNavMesh : MonoBehaviour
 {
     public Transform movePositionTransform;
     private NavMeshAgent navMeshAgent;
-    public float shootRange = 15;
+    public float shootRange = 8;
     
-    public float chaseRange = 500.0f;
+    public float chaseRange = 10.0f;
     
 
     private void Awake()
@@ -29,7 +29,7 @@ public class BossNavMesh : MonoBehaviour
         {
           
             navMeshAgent.destination = movePositionTransform.position;
-            navMeshAgent.speed = 3.5f;
+            navMeshAgent.speed = 5f;
             if (Vector3.Distance(transform.position, movePositionTransform.position) <= shootRange)
             {
 
