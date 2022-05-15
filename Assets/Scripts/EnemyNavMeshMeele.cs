@@ -24,12 +24,13 @@ public class EnemyNavMeshMeele : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         //navMeshAgent.destination = movePositionTransform.position;
         if (IsInRange() && IsInView())
         {
 
             navMeshAgent.destination = movePositionTransform.position;
-            navMeshAgent.speed = 3.5f;
+            //navMeshAgent.speed = 3.5f;
             if (Vector3.Distance(transform.position, movePositionTransform.position) <= shootRange)
             {
 
@@ -44,7 +45,7 @@ public class EnemyNavMeshMeele : MonoBehaviour
         else
         {
 
-            navMeshAgent.speed = 0;
+            //navMeshAgent.speed = 0;
             this.GetComponent<Animator>().Play("Idle_Battle");
 
         }
