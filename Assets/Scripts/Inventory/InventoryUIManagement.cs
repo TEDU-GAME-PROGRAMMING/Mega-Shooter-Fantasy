@@ -107,7 +107,6 @@ public class InventoryUIManagement : MonoBehaviour, IPointerDownHandler
         stopwatch.Start();
         if (Input.GetKeyDown(KeyCode.I))
         {
-
             inventoryOpen = !inventoryOpen;
             inventoryBackground.SetActive(inventoryOpen);
             if (inventoryOpen == true)
