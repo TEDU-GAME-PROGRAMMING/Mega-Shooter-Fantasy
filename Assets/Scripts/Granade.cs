@@ -16,6 +16,7 @@ public class Granade : MonoBehaviour
     bool hasExploded = false;
     public float destroyTimer;
 
+    public int damageOfEnemy = 50;
 
     // Start is called before the first frame update
     void Start()
@@ -74,5 +75,21 @@ public class Granade : MonoBehaviour
             }
         }
     }
+    // TODO we have to add the explosion radius in order to trigger the explosion event
+    /*private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.tag == "Player")
+        {
+            //Debug.Log("damage verdi");
+            CharacterStats.instance.TakeDamage(damageOfEnemy);
+        }
+        else
+        {
+
+        }
+        // Debug.Log(other.gameObject.name);
+        Destroy(gameObject, 1f);
+    }*/
 
 }

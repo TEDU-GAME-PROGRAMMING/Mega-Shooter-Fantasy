@@ -5,14 +5,33 @@ using UnityEngine.UI;
 public class Teleport : MonoBehaviour
 {
 
-    [SerializeField] Vector3 destinationA;
-    [SerializeField] Vector3 destinationB;
-    [SerializeField] Vector3 destinationC;
+    private Vector3 destinationA;
+    private Vector3 destinationB;
+    private Vector3 destinationC;
+
+    public GameObject firstPosition;
+    public GameObject secondPosition;
+    public GameObject thirdPosition;
 
 
     public GameObject DestinationCanvas;
     private void Start()
     {
+        // the destionation is set to the game object.
+        destinationA.x = firstPosition.transform.position.x;
+        destinationA.y = firstPosition.transform.position.y;
+        destinationA.z = firstPosition.transform.position.z;
+        // second destionation.
+        destinationB.x = secondPosition.transform.position.x;
+        destinationB.y = secondPosition.transform.position.y;
+        destinationB.z = secondPosition.transform.position.z;
+        // third destination.
+        destinationC.x = thirdPosition.transform.position.x;
+        destinationC.y = thirdPosition.transform.position.y;
+        destinationC.z = thirdPosition.transform.position.z;
+        
+
+
         DestinationCanvas.SetActive(false);
     }
 

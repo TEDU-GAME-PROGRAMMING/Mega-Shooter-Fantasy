@@ -11,6 +11,8 @@ public class Die : MonoBehaviour
          {
             // Dying();
             Cursor.lockState = CursorLockMode.None;
+
+
             SceneManager.LoadScene("OnDeadScene");
             
         }
