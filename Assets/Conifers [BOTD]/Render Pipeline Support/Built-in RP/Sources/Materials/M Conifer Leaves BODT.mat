@@ -9,8 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: M Conifer Leaves BODT
   m_Shader: {fileID: 4800000, guid: 6ae32366f15a64fc19f245f040af8f21, type: 3}
-  m_ShaderKeywords: GEOM_TYPE_LEAF _ALPHAPREMULTIPLY_ON _EMISSION _METALLICGLOSSMAP
-    _NORMALMAP _SPECULARHIGHLIGHTS_OFF
+  m_ShaderKeywords: GEOM_TYPE_LEAF GEOM_TYPE_MESH _EMISSION _METALLICGLOSSMAP _NORMALMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -77,13 +76,14 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ShadowMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 334b93266f52f7a428542f3471db186f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TranslucencyMap:
         m_Texture: {fileID: 2800000, guid: ca6a46a4d37514e00ae826202bad794e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _AmbientTranslucency: 2
     - _AnimateNormal: 1
@@ -102,7 +102,7 @@ Material:
     - _EdgeFlutterInfluence: 0
     - _EnableAdvancedEdgeBending: 1
     - _EnableLeafTurbulence: 1
-    - _EnableShadowMap: 0
+    - _EnableShadowMap: 1
     - _EnableTransFade: 0
     - _FadeOutWind: 0
     - _GlossMapScale: 1
@@ -137,6 +137,7 @@ Material:
     - _AdvancedEdgeBending: {r: 0.6, g: 1.3, b: 0, a: 0}
     - _AverageCol: {r: 1, g: 1, b: 1, a: 0.5}
     - _BaseWindMultipliers: {r: 0.6, g: 1, b: 1, a: 0}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0, g: 0.2677188, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _HueVariation: {r: 0, g: 0.9, b: 0.8255172, a: 0.1}
+    - _HueVariation: {r: 0.1764706, g: 0.1764706, b: 0.1764706, a: 0.1}
+  m_BuildTextureStacks: []

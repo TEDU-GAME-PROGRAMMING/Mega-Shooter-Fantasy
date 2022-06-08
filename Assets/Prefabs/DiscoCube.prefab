@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1569402675}
   - component: {fileID: 1569402677}
   - component: {fileID: 1569402676}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Regen Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 6210622956503776422}
   - component: {fileID: 6210622956503776442}
   - component: {fileID: 6210622956503776441}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DiscoCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

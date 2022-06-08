@@ -11,6 +11,7 @@ public class CharacterStats : MonoBehaviour
     public GameObject ArmorText;
     public GameObject Endurance;
     public GameObject warningMsg;
+    public GameObject Regenaration;
     public int maxHealth = 100;
     //public int currentHealth { get; private set; }
     public Stat Speed;//DONE
@@ -20,6 +21,7 @@ public class CharacterStats : MonoBehaviour
     public Stat intelligence;// partially DONE
     public Stat damage; //  DONE
     public Stat armor; //  DONE
+    public Stat Regen;
 
     //float speed;
     public bool display = false;
@@ -42,7 +44,7 @@ public class CharacterStats : MonoBehaviour
         SpeedText.GetComponent<TMP_Text>().text = GameManager.player.GetComponent<PlayerMovement>().speed.ToString();
         ArmorText.GetComponent<TMP_Text>().text = armor.getValue().ToString();
         Endurance.GetComponent<TMP_Text>().text = GameManager.player.GetComponent<PlayerMovement>().healthMax.ToString();
-
+        Regenaration.GetComponent<TMP_Text>().text = GameManager.player.GetComponent<PlayerMovement>().regen.ToString();
 
     }
     private void Update()
@@ -159,9 +161,11 @@ public class CharacterStats : MonoBehaviour
     {
         if (GameManager.player.GetComponent<Player>().remaingSkillPoints > 0)
         {
-            GameManager.player.GetComponent<PlayerMovement>().regen += 2;
+            Regen.getValue();
+            GameManager.player.GetComponent<PlayerMovement>().regen += 1;
             GameManager.player.GetComponent<Player>().remaingSkillPoints--;
             GameManager.player.GetComponent<Player>().remaingSkillPointText.GetComponent<TMP_Text>().text = GameManager.player.GetComponent<Player>().remaingSkillPoints.ToString();
+            Regenaration.GetComponent<TMP_Text>().text = GameManager.player.GetComponent<PlayerMovement>().regen.ToString();
         }
 
 
