@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fad92871dde8d2e4397dbe4fd04d87a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destinationA: {x: 0, y: 0, z: 0}
-  destinationB: {x: 0, y: 0, z: 0}
-  destinationC: {x: 0, y: 0, z: 0}
+  firstPosition: {fileID: 0}
+  secondPosition: {fileID: 0}
+  thirdPosition: {fileID: 0}
   DestinationCanvas: {fileID: 0}
