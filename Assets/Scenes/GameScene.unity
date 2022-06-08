@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44280854, g: 0.4725118, b: 0.5446495, a: 1}
+  m_IndirectSpecularColor: {r: 0.13201314, g: 0.2522195, b: 0.43088427, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -31179,6 +31179,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec199d13d4fc03845b6e9c34c6366673, type: 3}
+--- !u!4 &1495261707 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6210622956503776443, guid: ec199d13d4fc03845b6e9c34c6366673,
+    type: 3}
+  m_PrefabInstance: {fileID: 1495261706}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1497825397
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31692,6 +31698,65 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7050934325722364221}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1569402674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1569402675}
+  - component: {fileID: 1569402677}
+  - component: {fileID: 1569402676}
+  m_Layer: 0
+  m_Name: Regen Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1569402675
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569402674}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1495261707}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1569402676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569402674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3629b74808c8851418bb2d4c5beb9726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  regen: 10
+--- !u!135 &1569402677
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569402674}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 4.1596293
+  m_Center: {x: 0.24997473, y: 0, z: 0}
 --- !u!1 &1577167472
 GameObject:
   m_ObjectHideFlags: 0
