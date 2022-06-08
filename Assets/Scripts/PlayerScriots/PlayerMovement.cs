@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     public float healthMax = 100;
     //TODO add get setter
     public float healthCurrent;
+    public float regen = 4;
 
     //TODO solve bugs: Near the muontain velocity Y decreases, => increase the number of ground check objects
     private void Awake()

@@ -7,10 +7,7 @@ public class RegenArea : MonoBehaviour
 {
 
     public float regen = 3;
-    // Start is called before the first frame update
-
-
-
+  
     private void OnTriggerStay(Collider other)
     {
 
@@ -19,7 +16,7 @@ public class RegenArea : MonoBehaviour
         {
             if(GameManager.playerStats.healthCurrent < GameManager.playerStats.healthMax)
             {
-                GameManager.playerStats.healthCurrent += regen * Time.deltaTime;
+                GameManager.playerStats.healthCurrent += GameManager.playerStats.regen * Time.deltaTime;
             }
 
         }

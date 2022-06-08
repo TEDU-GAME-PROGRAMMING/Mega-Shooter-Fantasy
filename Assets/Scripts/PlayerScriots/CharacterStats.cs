@@ -154,4 +154,17 @@ public class CharacterStats : MonoBehaviour
         }
         
     }
+
+    public void HealthAmplification()
+    {
+        if (GameManager.player.GetComponent<Player>().remaingSkillPoints > 0)
+        {
+            GameManager.player.GetComponent<PlayerMovement>().regen += 2;
+            GameManager.player.GetComponent<Player>().remaingSkillPoints--;
+            GameManager.player.GetComponent<Player>().remaingSkillPointText.GetComponent<TMP_Text>().text = GameManager.player.GetComponent<Player>().remaingSkillPoints.ToString();
+        }
+
+
+    }
+
 }
