@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OnDeadScene.unity
     guid: aab32e59c90e24148984bbb5222b1d5b
+  - enabled: 1
+    path: Assets/Scenes/EndGame.unity
+    guid: 708c9ee228be512498d46dd4da16687c
   m_configObjects: {}

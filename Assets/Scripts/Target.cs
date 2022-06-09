@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class Target : MonoBehaviour
 {
     public float healthMax = 50f;
@@ -68,6 +69,7 @@ public class Target : MonoBehaviour
         {
             Destroy(this.GetComponent<BossNavMesh>());
             Destroy(gameObject,2f);
+            SceneManager.LoadScene("EndGame");
         }
         if (this.GetComponent<EnemyNavMeshMeele>() != null)
         {
