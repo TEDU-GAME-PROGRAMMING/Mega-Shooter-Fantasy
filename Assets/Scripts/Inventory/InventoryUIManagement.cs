@@ -49,6 +49,17 @@ public class InventoryUIManagement : MonoBehaviour, IPointerDownHandler
     public Item[,] inventoryItemArray;
 
     public bool isSelected = false;
+    public bool changeName = false;
+
+    GameObject selectedNew;
+    GameObject selectedOldObjectParent;
+    string previouslySelectedName;
+    string newlySelectedName;
+    GameObject previousItemText;
+    GameObject newItemText;
+
+    GameObject wearingGameObject;
+
     public void OnPointerDown(PointerEventData eventData)
     {
         //Each click calculate the x and y position corresponding to the inventory ui.
@@ -137,33 +148,25 @@ public class InventoryUIManagement : MonoBehaviour, IPointerDownHandler
                 deselect it and place it to the corresponding inventory slot
 
             */
+
             if (Input.GetMouseButtonDown(0))
             {
+                Debug.Log("Click test " + changeName);
+
                 if (results.Any())
                 {
+
                     //If the mouse clicked at pos brought a inventory grid, check if the mouse currently selects any obj
                     if (isSelected)
                     {
-                        //If isSelected, then another item is being dragged,
-                        //so switch them 
-                        GameObject selectedNew = results[0].gameObject;
-                        GameObject selectedOldObjectParent = selectedObject.transform.parent.gameObject;
 
-                        selectedObject.transform.parent = selectedNew.transform;
-                        selectedObject.transform.localPosition = Vector3.zero;
-                        selectedObject.transform.parent = selectedNew.transform.parent;
-                        //selectedObject.GetComponent<RectTransform>().x 
+                        Swap(results);
 
-                        selectedNew.transform.parent = selectedOldObjectParent.transform;
+                        //If the selectedNew object is equal to wearing, update player stats with . 
+                        if(selectedNew.transform.parent == wearingGameObject)
+                        {
 
-                        selectedObject.GetComponent<Image>().raycastTarget = true;
-                        selectedNew.GetComponent<Image>().raycastTarget = false;
-
-                        //selectedNew.GetComponent<Image>().sprite = selectedObject.GetComponent<Image>().sprite;
-                        //selectedObject.GetComponent<Image>().color = Color.red;
-
-
-                        selectedObject = selectedNew;
+                        }
 
                         //Update the inventory item slot lastX, lastY for the switched item
                         //and switch the inventory 
@@ -176,6 +179,11 @@ public class InventoryUIManagement : MonoBehaviour, IPointerDownHandler
                     {
 
                         selectedObject = results[0].gameObject;
+                        previouslySelectedName = selectedObject.transform.parent.Find("ItemName").GetComponent<TMP_Text>().text;
+                        previousItemText = selectedObject.transform.parent.Find("ItemName").gameObject;
+
+                        //Debug.Log("selectedOld assigned " + selectedObject.transform.parent.Find("ItemName").GetComponent<TMP_Text>().text);
+
                         isSelected = true;
 
                         //For detecting the objects below the selected obj.
@@ -189,6 +197,15 @@ public class InventoryUIManagement : MonoBehaviour, IPointerDownHandler
                     if(selectedObject != null)
                     {
                         isSelected = false;
+                        if (changeName)
+                        {
+                            changeName = !changeName;
+                            previousItemText.GetComponent<TMP_Text>().text = newlySelectedName;
+                            newItemText.GetComponent<TMP_Text>().text = previouslySelectedName;
+
+
+                        }
+
                         selectedObject.GetComponent<Image>().raycastTarget = true;
 
                         //selectedObject.transform.localPosition = Vector3.zero;
@@ -196,6 +213,7 @@ public class InventoryUIManagement : MonoBehaviour, IPointerDownHandler
 
 
                     }
+
                 }
 
 
@@ -204,13 +222,17 @@ public class InventoryUIManagement : MonoBehaviour, IPointerDownHandler
             if(isSelected)
             {
                 selectedObject.transform.position = Input.mousePosition;
+                if(results.Any())
+                {
+                }
+
 
             }
 
-/*            foreach (RaycastResult result in results)
-            {
-                Debug.Log("Hit " + result.gameObject.name);
-            }*/
+            /*            foreach (RaycastResult result in results)
+                        {
+                            Debug.Log("Hit " + result.gameObject.name);
+                        }*/
 
         }
 
@@ -239,6 +261,41 @@ public class InventoryUIManagement : MonoBehaviour, IPointerDownHandler
         //(inventory.LastX)++;
         //inventoryItemArray[0, 0] = item;
         //inventoryUIArray[inventory.LastX, inventory.LastY].gameObject.AddComponent(typeof(SphereCollider));
+    }
+
+    public void Swap(List<RaycastResult> results)
+    {
+
+        changeName = !changeName;
+
+        //If isSelected, then another item is being dragged,
+        //so switch them 
+        selectedNew = results[0].gameObject;
+        selectedOldObjectParent = selectedObject.transform.parent.gameObject;
+        newlySelectedName = selectedNew.transform.parent.Find("ItemName").GetComponent<TMP_Text>().text;
+
+        previousItemText = selectedOldObjectParent.transform.Find("ItemName").gameObject;
+        newItemText = selectedNew.transform.parent.Find("ItemName").gameObject;
+
+        selectedObject.transform.parent = selectedNew.transform;
+        selectedObject.transform.localPosition = Vector3.zero;
+        selectedObject.transform.parent = selectedNew.transform.parent;
+        //selectedObject.GetComponent<RectTransform>().x 
+
+
+
+        selectedNew.transform.parent = selectedOldObjectParent.transform;
+
+
+        selectedObject.GetComponent<Image>().raycastTarget = true;
+        selectedNew.GetComponent<Image>().raycastTarget = false;
+
+        //selectedNew.GetComponent<Image>().sprite = selectedObject.GetComponent<Image>().sprite;
+        //selectedObject.GetComponent<Image>().color = Color.red;
+
+
+        selectedObject = selectedNew;
+
     }
 
     public void DisplayStatsOnHover()
