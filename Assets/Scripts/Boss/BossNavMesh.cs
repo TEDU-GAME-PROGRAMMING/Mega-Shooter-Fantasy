@@ -29,7 +29,8 @@ public class BossNavMesh : MonoBehaviour
         {
           
             navMeshAgent.destination = movePositionTransform.position;
-            navMeshAgent.speed = 5f;
+            navMeshAgent.speed = 15f;
+            
             if (Vector3.Distance(transform.position, movePositionTransform.position) <= shootRange)
             {
 

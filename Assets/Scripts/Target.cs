@@ -44,6 +44,7 @@ public class Target : MonoBehaviour
         if (this.GetComponent<Animator>() !=null)
         {
             this.GetComponent<Animator>().Play("Die");
+            this.GetComponent<Animator>().Play("anim_closed_StopRoll");
         }
         
         if (counter == 1)
@@ -63,10 +64,10 @@ public class Target : MonoBehaviour
         if (this.GetComponent<EnemyNavMesh>() != null)
         {
             Destroy(this.GetComponent<EnemyNavMesh>());
-            Destroy(gameObject);
+            Destroy(gameObject, 1.65f);
         }
         if (this.GetComponent<BossNavMesh>() != null)
-        {
+        { 
             Destroy(this.GetComponent<BossNavMesh>());
             Destroy(gameObject,2f);
             SceneManager.LoadScene("EndGame");

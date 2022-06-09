@@ -14,6 +14,7 @@ public class SettingsMenu : MonoBehaviour
 
     private void Start()
     {
+        SetVolume(0.2f);
         resolutions = Screen.resolutions;
 
         resolutionDropdown.ClearOptions();
@@ -44,7 +45,7 @@ public class SettingsMenu : MonoBehaviour
     }
     public void SetVolume(float volume)
     {
-        audioMixer.SetFloat("volume", volume);
+        AudioListener.volume = volume;
     }
     public void SetQuality(int qualityIndex)
     {
