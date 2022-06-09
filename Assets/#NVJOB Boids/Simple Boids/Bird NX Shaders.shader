@@ -20,7 +20,10 @@ Properties{
 
 [Header(Basic Settings)][Space(5)]
 [HDR]_Color("Main Color", Color) = (1,1,1,1)
+
 _MainTex("Base (RGB) Gloss (A)", 2D) = "white" {}
+_SetColor("SetColor", Color) = (1,1,1,1)
+
 _Saturation("Saturation", Range(0, 5)) = 1
 _Brightness("Brightness", Range(0, 5)) = 1
 _Contrast("Contrast", Range(0, 5)) = 1
@@ -61,6 +64,7 @@ _WaveYSpeed("Wave Y Speed", Range(0, 30)) = 1
 [Toggle(BUTTERFLY)]
 _FillWithRed("Butterfly", Float) = 0
 
+
 //----------------------------------------------
 }
 
@@ -78,15 +82,15 @@ Tags{ "RenderType" = "Opaque" }
 Cull Off
 LOD 200
 CGPROGRAM
-#pragma surface surf BlinnPhong vertex:vert exclude_path:prepass nolppv noforwardadd interpolateview novertexlights
-//#pragma surface surf BlinnPhong vertex:vert exclude_path:prepass nolppv noforwardadd interpolateview novertexlights addshadow fullforwardshadows // for Shadow
+//#pragma surface surf BlinnPhong vertex:vert exclude_path:prepass nolppv noforwardadd interpolateview novertexlights
+#pragma surface surf BlinnPhong vertex:vert exclude_path:prepass nolppv noforwardadd interpolateview novertexlights addshadow fullforwardshadows // for Shadow
 #pragma shader_feature BUTTERFLY
 #pragma multi_compile_instancing
 
 //----------------------------------------------
 
 sampler2D _MainTex, _BumpMap, _BumpMapD, _SpecMap, _OcclusionMap, _EmissionTex;
-fixed4 _Color, _ReflectColor;
+fixed4 _Color, _ReflectColor, _SetColor;
 half _Shininess, _BiasNormal, _IntensityNm, _OcclusionMapUv, _IntensityOc, _IntensityRef, _Saturation, _Contrast, _Brightness, _BumpMapDUV, _IntensityNmD, _SaturationRef, _ContrastRef, _SpecMapInts, _SpecMapUV;
 samplerCUBE _Cube;
 half _FlappingSpeed, _FlappYPower, _FlappYOffset, _FlappXPower, _FlappXOffset, _FlappXCenter, _FlappZPower, _WaveY, _WaveYSpeed;
@@ -142,12 +146,12 @@ if (_WaveY > 0) v.vertex.y += sin((timeY + (cos((wp.x + wp.z) * _WaveY * 0.1) * 
 void surf(Input IN, inout SurfaceOutput o) {
 half oc = tex2D(_OcclusionMap, IN.uv_MainTex * _OcclusionMapUv).r;
 oc = ((oc - 0.5) * _IntensityOc + 0.5);
-fixed4 tex = tex2D(_MainTex, IN.uv_MainTex) * _Color;
+fixed4 tex = tex2D(_MainTex, IN.uv_MainTex) * _Color * _SetColor;
 float Lum = dot(tex, float3(0.2126, 0.7152, 0.0722));
 half3 color = lerp(Lum.xxx, tex, _Saturation);
 color = color * _Brightness;
-o.Albedo = ((color - 0.5) * _Contrast + 0.5) * oc;
-o.Alpha = tex.a * _Color.a;
+o.Albedo = ((color - 0.5) * _Contrast + 0.5) * oc * _SetColor;
+o.Alpha = tex.a * _Color.a * _SetColor.a;
 o.Gloss = _SpecColor.a;
 fixed4 specTex = tex2D(_SpecMap, IN.uv_MainTex * _SpecMapUV);
 specTex = (specTex - 0.5) * _SpecMapInts + 0.5;

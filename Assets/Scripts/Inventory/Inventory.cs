@@ -40,13 +40,13 @@ public class Inventory
         if (item1 == null || item2 == null)
             return false;
 
-        item2.AttackSpeed = item1.AttackSpeed;
-        item2.Damage = item1.Damage;
-        item2.Durability = item1.Durability;
-        item2.ItemID = item1.ItemID;
-        item2.Weight = item1.Weight;
-        item2.ItemName = item1.ItemName;
-        item2.itemImage = item1.itemImage;
+        item1.AttackSpeed = item2.AttackSpeed;
+        item1.Damage = item2.Damage;
+        item1.Durability = item2.Durability;
+        item1.ItemID = item2.ItemID;
+        item1.Weight = item2.Weight;
+        item1.ItemName = item2.ItemName;
+        item1.itemImage = item2.itemImage;
 
         return true;
     }

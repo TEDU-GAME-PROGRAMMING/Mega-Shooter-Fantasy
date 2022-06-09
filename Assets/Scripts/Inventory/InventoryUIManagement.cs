@@ -252,7 +252,9 @@ public class InventoryUIManagement : MonoBehaviour, IPointerDownHandler
 
         Item item = new Item();
         Debug.Log("before " + inventory.LastX + "  " + inventory.LastY);
+        item = inventoryUIArray[inventory.LastX == 0 ? inventory.LastX : inventory.LastX - 1, inventory.LastY].transform.Find("Item").gameObject.AddComponent<Item>();
         inventory.CopyItem(item, pickedItem);
+
         Debug.Log("AFTER " + inventory.LastX + "  " + inventory.LastY);
         inventory.LastX--;
         inventoryUIArray[inventory.LastX, inventory.LastY].transform.Find("Item").GetComponent<Image>().sprite = pickedObject.GetComponent<Item>().itemImage;
