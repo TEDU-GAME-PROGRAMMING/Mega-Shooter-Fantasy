@@ -72,6 +72,9 @@ public class CharacterStats : MonoBehaviour
         damage -= (armor.getValue() * 10);
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
         GameManager.playerStats.healthCurrent -= damage;
+
+        int rando = Random.Range(0, GetComponent<MusicNew>().damageEffects.Count);
+        GetComponent<MusicNew>().damageEffects[rando].Play();
     }
     public void SpeedIncrease()
     {

@@ -12,7 +12,9 @@ public class BossAttack : MonoBehaviour
         if (collision.gameObject.name.Equals("First Person Player"))
         {
             //Debug.Log("Hitted");
-            GameManager.playerStats.healthCurrent -= Damage;
+            //GameManager.playerStats.healthCurrent -= Damage;
+            CharacterStats.instance.TakeDamage(Damage);
+
         }
     }
 }
