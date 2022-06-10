@@ -5,6 +5,7 @@ using UnityEngine;
 public class NPCTalk : MonoBehaviour
 {
     public AudioSource[] shootingSound;
+    bool a = true;
     //public AudioSource ReloadingSound;
     private void Start()
     {
@@ -14,7 +15,11 @@ public class NPCTalk : MonoBehaviour
 
     private void OnTriggerEnter()
     {
-        shootingSound[0].PlayOneShot(shootingSound[0].clip);
+        if(a == true)
+        {
+            shootingSound[0].PlayOneShot(shootingSound[0].clip);
+            a = false;  
+        }
     }
 
     private void OnTriggerExit()
