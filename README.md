@@ -29,7 +29,7 @@ The main player was an astronaut that was sent into an exploration mission. In h
 - [ ] NPC voices, animations
 - [+] World design
 - [ ] Weapons, armors: magic, physical damage and resistance
-- [ ] Melodies
+- [x] Melodies
 - [ ] Character class
 - [x] Level up system
 - [x] Character stats
@@ -45,7 +45,7 @@ The main player was an astronaut that was sent into an exploration mission. In h
 - [ ] Projectile mechanic
 - [ ] Waypoint system
 - [ ] Backpack, weight, speed mechanics
-- [x] Pet system
+- [ ] Pet system
 - [ ] Autopilot, auto run
 - [x] Boss fight system
 - [ ] Check point, save system
